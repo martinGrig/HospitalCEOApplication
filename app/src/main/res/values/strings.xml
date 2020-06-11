@@ -15,4 +15,15 @@
     <string name="str_dashboard">Dashboard</string>
     <string name="str_employees">Employees</string>
     <string name="str_finance">Finance</string>
+
+    <string name="expenses_overview">Expenses overview</string>
+    <string name="image_expenses">image expenses</string>
+    <string name="Expense_name">Expense name</string>
+    <string name="Expense_description">Expense_description</string>
+    <string name="Expense_money">$50 000</string>
+    <string name="expensesoverview">Expenses</string>
+    <string name="textviewExpenses">Expenses</string>
+    <string name="profit">Profit</string>
+    <string name="nothing" />
+    <string name="expenses_date">22.06.2020</string>
 </resources>
