@@ -18,3 +18,7 @@
 .externalNativeBuild
 
 .cxx
+.gradle/
+
+.gradle/6.1.1/
+build/
