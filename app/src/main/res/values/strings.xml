@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">hospitalceo</string>
+    <string name="app_name">HospitalManagement</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="res_celebrate">Celebrate Today</string>
+    <string name="res_hospital">Hospital</string>
+    <string name="res_other">Other</string>
+    <string name="res_dep_name">Department</string>
+    <string name="res_notification_content">Notification, just happened now.</string>
+    <string name="res_time">Time</string>
+    <string name="res_imv_employee">Employee Profile Image</string>
+    <string name="res_emp_name">Employee Name</string>
+    <string name="res_send_message">Send Message</string>
+    <string name="str_dashboard">Dashboard</string>
+    <string name="str_employees">Employees</string>
+    <string name="str_finance">Finance</string>
 </resources>

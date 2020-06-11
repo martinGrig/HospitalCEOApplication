@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context="cs.fhict.org.hospitalceo.ui.employeeDetails.EmployeeDetailsActivity">
+    android:layout_weight="3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.5"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+
+                    android:background="#0336EA"
+                    android:orientation="vertical"
+                    >
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    >
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/download"
+                >
+
+            </ImageView>
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="vertical"
+
+        >
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:text="Name Name"
+            android:paddingTop="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            >
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+
+                android:paddingTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:text="Data"
+                    android:paddingTop="10dp"
+                    android:gravity="center"
+                    >
+                </TextView>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Birthday"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+
+                    android:paddingTop="10dp"
+                    >
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+
+                android:paddingTop="10dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Data"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+
+                    android:paddingTop="10dp"
+                    >
+                </TextView>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Annivarsary"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+
+                    android:paddingTop="10dp"
+                    >
+                </TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.3"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Employee Data"
+            android:textSize="20dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/colorPrimary"
+            >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            >
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:paddingTop="10dp"
+                android:text="Job title:"
+                android:textSize="15dp"></TextView>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text=" Data"
+                android:textSize="20dp"
+                android:paddingTop="10dp"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            >
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:text="Phone:"
+                android:textSize="15dp"
+                android:paddingTop="10dp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Data"
+                android:textSize="20dp"
+                android:paddingTop="10dp"
+                >
+            </TextView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
