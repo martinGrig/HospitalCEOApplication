@@ -1,4 +1,4 @@
-package cs.fhict.org.hospitalmanagement.ui.finance
+package cs.fhict.org.hospitalceo.ui.finance
 
 import android.graphics.Color
 import android.os.Bundle
