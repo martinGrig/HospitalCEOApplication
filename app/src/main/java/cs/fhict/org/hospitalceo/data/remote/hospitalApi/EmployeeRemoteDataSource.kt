@@ -18,8 +18,39 @@ import retrofit2.Response
         return SingletonHolder.INSTANCE
     }
 
+     override fun getFavouriteStaff(callback: EmployeeDataSource.LoadEmployeesCallback) {
+         var favEmps : ArrayList<Employee> = ArrayList()
+         val call: retrofit2.Call<ArrayList<Employee>> = ApiClient.getClient.getEmployees()
 
-    override fun getEmployees(callback: EmployeeDataSource.LoadEmployeesCallback) {
+         call.enqueue(object : Callback<ArrayList<Employee>> {
+             override fun onFailure(call: retrofit2.Call<ArrayList<Employee>>, t: Throwable) {
+                 Log.d("TAG FAIL", t.message!!)
+
+                 callback.onError(t);
+
+             }
+             override fun onResponse(call: retrofit2.Call<ArrayList<Employee>>, response: Response<ArrayList<Employee>>) {
+                 if (response.isSuccessful) {
+                     Log.d("TAG SUCCESS", response.toString())
+
+                     val employees : ArrayList<Employee> = response.body()!!
+                     employees.forEach {
+                         if (it.job == "Secretaris") {
+                             favEmps.add(it)
+                             callback.onEmployeesLoaded(favEmps)
+                         }
+                     }
+
+
+                 } else {
+                     callback.onDataNotAvailable();
+                 }
+             }
+         })
+     }
+
+
+     override fun getEmployees(callback: EmployeeDataSource.LoadEmployeesCallback) {
         val call: retrofit2.Call<ArrayList<Employee>> = ApiClient.getClient.getEmployees()
 
         call.enqueue(object : Callback<ArrayList<Employee>> {

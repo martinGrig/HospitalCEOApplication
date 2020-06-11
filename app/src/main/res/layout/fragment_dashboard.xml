@@ -6,22 +6,26 @@
     android:layout_height="match_parent"
     tools:context="cs.fhict.org.hospitalceo.ui.dashboard.DashboardFragment">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/app_toolbar" />
+
     <TextView
         android:id="@+id/tvCelebrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/res_celebrate"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="110dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="20dp"

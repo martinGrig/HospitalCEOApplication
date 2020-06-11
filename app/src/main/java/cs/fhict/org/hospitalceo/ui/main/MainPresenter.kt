@@ -8,19 +8,24 @@ class MainPresenter  : MainContract.Presenter{
 
     private var view:MainContract.View? = null
 
-    private var bottomNavigationView : BottomNavigationView? = null
-    private var listener : BottomNavigationView.OnNavigationItemSelectedListener? = null
-
-    init {
-        listener = this
-        bottomNavigationView?.setOnNavigationItemSelectedListener (listener)
-    }
     override fun onViewLoaded() {
             view?.loadDashboard()
     }
 
     override fun onBackPressed() {
          view?.finishActivity()
+    }
+
+    override fun onDashboardTaped() {
+        view?.loadDashboard()
+    }
+
+    override fun onFinanceTaped() {
+        view?.loadFinance()
+    }
+
+    override fun onEmployeeTaped() {
+        view?.loadEmployees()
     }
 
 
@@ -32,18 +37,5 @@ class MainPresenter  : MainContract.Presenter{
         this.view = null
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.dashboard_tab -> {
-                view?.loadDashboard()
-            }
-            R.id.employees_tab -> {
-                view?.loadEmployees()
-            }
-            R.id.finance_tab -> {
-                view?.loadFinance()
-            }
-        }
-        return false
-    }
+
 }

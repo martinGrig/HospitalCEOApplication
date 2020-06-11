@@ -23,6 +23,7 @@ interface EmployeeDataSource {
         fun onError(t: Throwable)
     }
 
+    fun getFavouriteStaff(callback: LoadEmployeesCallback)
     fun getEmployees(callback: LoadEmployeesCallback)
     fun getEmployeesCount(callback: LoadEmployeesCountCallback)
     fun getEmployee(id: Int, callback: LoadEmployeeCallback)
