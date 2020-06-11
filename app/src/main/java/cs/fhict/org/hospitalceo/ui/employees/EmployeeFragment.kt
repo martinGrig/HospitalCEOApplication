@@ -5,12 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import cs.fhict.org.hospitalceo.data.EmployeeMessageDataSource
 import cs.fhict.org.hospitalmanagement.R
+import cs.fhict.org.hospitalceo.data.model.EmployeeMessage
+import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.IOException
+import java.io.InputStream
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var messageAdapter: EmployeeMessagesAdapter
 
 /**
  * A simple [Fragment] subclass.
@@ -57,4 +66,20 @@ class EmployeeFragment : Fragment() {
                 }
             }
     }
+
+    /* this is implment for the messages recycler view */
+    private fun addDataSet(){
+        val data = EmployeeMessageDataSource.createDataSet()
+        messageAdapter.submitList(data)
+    }
+
+   /* private fun initRecyclerView(){
+
+        msg_recycler_view.apply {
+            layoutManager = LinearLayoutManager(this@fragment_employee)
+
+            messageAdapter = EmployeeMessagesAdapter()
+            adapter = messageAdapter
+        }
+    }*/
 }
