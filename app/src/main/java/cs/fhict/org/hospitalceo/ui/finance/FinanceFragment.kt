@@ -166,7 +166,7 @@ class FinancesFragment : Fragment(), OnChartValueSelectedListener, FinanceContra
     override fun setPieChart(fin: Finance) {
         patientsChart.setUsePercentValues(true)
         patientsChart.description.isEnabled = false;
-        patientsChart.setNoDataText("No Patients Found")
+        patientsChart.setNoDataText("No Expenses Found")
         patientsChart.setExtraOffsets(5F, 10F, 5F, 5F)
         patientsChart.setDrawEntryLabels(true)
 
