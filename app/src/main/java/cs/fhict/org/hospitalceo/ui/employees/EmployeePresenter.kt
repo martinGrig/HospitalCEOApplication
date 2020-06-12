@@ -35,7 +35,6 @@ class EmployeePresenter(empRep:EmployeeRepository) : EmployeeContract.Presenter 
             override fun onError(t: Throwable) {
                 Log.d("ERROR",t.message!!)
             }
-
         })
 
       //  favouriteEmployees = empRep?.favs
