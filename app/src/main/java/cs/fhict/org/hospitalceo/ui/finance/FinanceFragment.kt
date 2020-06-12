@@ -212,7 +212,7 @@ class FinancesFragment : Fragment(), OnChartValueSelectedListener, FinanceContra
 
         val data = PieData(dataSet)
         data.setValueTextSize(15f)
-        data.setValueTextColor(Color.WHITE)
+        data.setValueTextColor(Color.BLACK)
         patientsChart.setDrawSliceText(false)
         patientsChart.setUsePercentValues(true)
 
