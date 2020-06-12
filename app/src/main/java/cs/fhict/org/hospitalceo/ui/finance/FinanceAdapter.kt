@@ -19,7 +19,7 @@ class FinanceAdapter(private var finances : ArrayList<Finance>) : RecyclerView.A
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FinanceViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_finance, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.finance_list, parent, false)
         return FinanceViewHolder(finances,view)
     }
 

@@ -17,14 +17,10 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.github.mikephil.charting.utils.ColorTemplate
-import cs.fhict.org.hospitalceo.data.EmployeeRepository
 import cs.fhict.org.hospitalceo.data.FinanceDataSource
 import cs.fhict.org.hospitalceo.data.FinanceRepository
 import cs.fhict.org.hospitalceo.data.model.Finance
-import cs.fhict.org.hospitalceo.data.remote.hospitalApi.EmployeeRemoteDataSource
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.FinanceRemoteDataSource
-import cs.fhict.org.hospitalceo.ui.employees.EmployeePresenter
-import cs.fhict.org.hospitalceo.ui.employees.FavouriteContactsAdapter
 import cs.fhict.org.hospitalmanagement.R
 import kotlinx.android.synthetic.main.fragment_finance.view.*
 import kotlinx.android.synthetic.main.fragment_finance.*
