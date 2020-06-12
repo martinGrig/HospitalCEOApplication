@@ -118,7 +118,7 @@ public interface HospitalInterface  {
     //FINANCES
 
     @GET("finance")
-    fun getFinances(): Call<ArrayList<Finance>>
+    fun getFinances(): Call<Finance>
 
 
 

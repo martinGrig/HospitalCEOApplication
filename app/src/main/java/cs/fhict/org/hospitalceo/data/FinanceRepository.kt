@@ -4,13 +4,13 @@ import cs.fhict.org.hospitalceo.data.model.Finance
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.FinanceRemoteDataSource
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.MedicineRemoteDataSource
 
-class FinanceRepository(financeData : FinanceRemoteDataSource)  : FinanceDataSource {
+class FinanceRepository(financeData : FinanceRemoteDataSource?)  : FinanceDataSource {
 
-    var financeData = financeData.getInstance()
+    var financeData = financeData?.getInstance()
 
     override fun getFinances(callback: FinanceDataSource.LoadFinanceCallback) {
         financeData?.getFinances(object : FinanceDataSource.LoadFinanceCallback{
-            override fun onFinanceLoaded(finance: ArrayList<Finance>) {
+            override fun onFinanceLoaded(finance: Finance) {
                 callback.onFinanceLoaded(finance)
             }
 

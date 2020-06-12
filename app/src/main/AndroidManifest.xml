@@ -13,13 +13,15 @@
     <activity android:name="cs.fhict.org.hospitalceo.ui.employeeDetails.EmployeeDetailsActivity" />
 
         <activity android:name="cs.fhict.org.hospitalceo.ui.main.MainActivity">
+
+        </activity>
+        <activity android:name="cs.fhict.org.hospitalceo.ui.startingPage.ActivitySplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

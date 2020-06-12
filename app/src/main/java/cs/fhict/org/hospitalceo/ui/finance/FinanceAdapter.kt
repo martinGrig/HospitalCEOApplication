@@ -26,7 +26,6 @@ class FinanceAdapter(private var finances : ArrayList<Finance>) : RecyclerView.A
     override fun getItemCount(): Int =   finances!!.size
 
     override fun onBindViewHolder(holder: FinanceViewHolder, position: Int) {
-        //presenter?.onBindItemView(holder, position)
 
         Log.d("SIZE SSS", finances?.size.toString())
         finances?.get(position).let {
@@ -41,10 +40,8 @@ class FinanceAdapter(private var finances : ArrayList<Finance>) : RecyclerView.A
 
         init {
             itemLayoutView.setOnClickListener {
-                //  presenter?.onItemClicked(adapterPosition)
 
-                val emp = finances?.get(adapterPosition)//favouriteEmployees?.get(pos)
-                //  emp?.id?.let { itemLayoutView?.goToEmployeeDetails(it) }
+                val fins = finances?.get(adapterPosition)
 
             }
         }
