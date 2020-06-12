@@ -13,9 +13,13 @@ interface MainContract {
         fun loadFinance()
     }
 
-    interface Presenter : IBasePresenter<View>, BottomNavigationView.OnNavigationItemSelectedListener {
+    interface Presenter : IBasePresenter<View> {
         fun onViewLoaded();
         fun onBackPressed();
+        fun onDashboardTaped();
+        fun onFinanceTaped()
+        fun onEmployeeTaped();
+
 
     }
 }

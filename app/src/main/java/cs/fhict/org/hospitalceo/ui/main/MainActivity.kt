@@ -9,10 +9,11 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cs.fhict.org.hospitalceo.ui.dashboard.DashboardFragment
 import cs.fhict.org.hospitalceo.ui.employees.EmployeeFragment
+import cs.fhict.org.hospitalceo.ui.finance.FinancesFragment
 import cs.fhict.org.hospitalmanagement.R
 
 
-class MainActivity : AppCompatActivity(),MainContract.View {
+class MainActivity : AppCompatActivity(),MainContract.View, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var mainPresenter : MainPresenter? = null
     private var fragmentManager : FragmentManager? = null
@@ -22,11 +23,17 @@ class MainActivity : AppCompatActivity(),MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        listener = this
+        bottomNavigationView = findViewById(R.id.nav_bottom_bar)
+        bottomNavigationView?.setOnNavigationItemSelectedListener (listener)
+
         fragmentManager = supportFragmentManager
         mainPresenter = MainPresenter()
         mainPresenter?.onViewActive(this)
 
         mainPresenter?.onViewLoaded()
+
     }
 
     override fun onBackPressed() {
@@ -52,12 +59,28 @@ class MainActivity : AppCompatActivity(),MainContract.View {
     }
 
     override fun loadFinance() {
-
+        val fragment: Fragment = FinancesFragment()
+        fragmentManager?.findFragmentById(R.id.finance_tab)
+        fragmentManager?.beginTransaction()?.replace(R.id.frameLay,fragment)?.commit()
     }
 
     override fun ShowToast(message: String?) {
         Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.dashboard_tab -> {
+                mainPresenter?.onDashboardTaped()
+            }
+            R.id.employees_tab -> {
+              mainPresenter?.onEmployeeTaped()
+            }
+            R.id.finance_tab -> {
+                mainPresenter?.onFinanceTaped()
+            }
+        }
+        return false    }
 
 
 }

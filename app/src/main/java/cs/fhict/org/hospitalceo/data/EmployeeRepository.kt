@@ -8,6 +8,23 @@ class EmployeeRepository(empData : EmployeeRemoteDataSource?) : EmployeeDataSour
 
     var empData = empData?.getInstance()
 
+    override fun getFavouriteStaff(callback: EmployeeDataSource.LoadEmployeesCallback) {
+        empData?.getFavouriteStaff(object: EmployeeDataSource.LoadEmployeesCallback {
+            override fun onEmployeesLoaded(employeeList: ArrayList<Employee>) {
+                callback.onEmployeesLoaded(employeeList)
+            }
+
+            override fun onDataNotAvailable() {
+                callback.onDataNotAvailable()
+            }
+
+            override fun onError(t: Throwable) {
+                callback.onError(t)
+            }
+
+        })
+    }
+
 
     override fun getEmployees(callback: EmployeeDataSource.LoadEmployeesCallback) {
 
