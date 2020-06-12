@@ -116,9 +116,9 @@ public interface HospitalInterface  {
     fun getMedicinesRestockCount(): Call<Int>
 
     //FINANCES
-//
-//    @GET("finance")
-//    fun getFinances(): Call<ArrayList<Finance>>
+
+    @GET("finance")
+    fun getFinances(): Call<ArrayList<Finance>>
 
 
 
