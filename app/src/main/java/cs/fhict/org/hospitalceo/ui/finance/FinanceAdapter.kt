@@ -1,70 +1,57 @@
 package cs.fhict.org.hospitalceo.ui.finance
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import cs.fhict.org.hospitalceo.data.model.Employee
 import cs.fhict.org.hospitalceo.data.model.EmployeeMessage
 import cs.fhict.org.hospitalceo.data.model.Finance
+import cs.fhict.org.hospitalceo.ui.employees.EmployeeContract
 import cs.fhict.org.hospitalmanagement.R
+import kotlinx.android.synthetic.main.employee_fav_item.view.*
 import kotlinx.android.synthetic.main.employee_msg_item.view.*
+import kotlinx.android.synthetic.main.employee_msg_item.view.fav_emp_name
 
-class FinanceAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
-{
-    private val TAG: String = "AppDebug"
+class FinanceAdapter(private var finances : ArrayList<Finance>) : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() {
 
-    private var items: List<Finance> = ArrayList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return MessageViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.employee_msg_item, parent, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FinanceViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_finance, parent, false)
+        return FinanceViewHolder(finances,view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder) {
+    override fun getItemCount(): Int =   finances!!.size
 
-            is MessageViewHolder -> {
-                holder.bind(items.get(position))
+    override fun onBindViewHolder(holder: FinanceViewHolder, position: Int) {
+        //presenter?.onBindItemView(holder, position)
+
+        Log.d("SIZE SSS", finances?.size.toString())
+        finances?.get(position).let {
+            holder.bindItem(it)
+        }
+    }
+
+    class FinanceViewHolder(private var finances : ArrayList<Finance>, itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView),
+        FinanceContract.ItemView{
+
+        var nameTextView: TextView = itemLayoutView.fav_emp_name
+
+        init {
+            itemLayoutView.setOnClickListener {
+                //  presenter?.onItemClicked(adapterPosition)
+
+                val emp = finances?.get(adapterPosition)//favouriteEmployees?.get(pos)
+                //  emp?.id?.let { itemLayoutView?.goToEmployeeDetails(it) }
+
             }
-
+        }
+        override fun bindItem(item: Finance) {
+            Log.d("NAME AND JOB",  item.income.toString())
+            nameTextView.text = item.costs.toString()
         }
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
-
-    fun submitList(msgList: List<EmployeeMessage>){
-        items = msgList
-    }
-
-
-
-    class MessageViewHolder
-    constructor(
-        itemView: View
-    ): RecyclerView.ViewHolder(itemView){
-
-        val msg_title = itemView.message_body
-        val msg_body = itemView.employee_name
-
-        fun bind(employeeMessage: EmployeeMessage){
-
-            val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
-
-            // Glide.with(itemView.context)
-            //    .applyDefaultRequestOptions(requestOptions)
-            //     .load(employeeMessage.image)
-            //   .into(employeeMessage)
-            msg_title.setText(employeeMessage.title)
-            msg_body.setText(employeeMessage.body)
-        }
-    }
-/// public interface  onMessageListener{
-//    fun  onClickLinstener(int position) {
-
-//   }
-
+}
