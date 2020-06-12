@@ -1,6 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FinancesLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -11,7 +12,7 @@
         android:layout_height="176dp"
         android:background="#182883"
         android:text="@string/nothing"
-        app:layout_constraintBottom_toTopOf="@+id/rvDepartment"
+        app:layout_constraintBottom_toTopOf="@+id/rvFinances"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,7 @@
         android:layout_height="237dp"
         android:background="@drawable/rounded_finances_background"
         android:elevation="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/rvDepartment"
+        app:layout_constraintBottom_toTopOf="@+id/rvFinances"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,7 +33,7 @@
     </com.github.mikephil.charting.charts.PieChart>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDepartment"
+        android:id="@+id/rvFinances"
         android:layout_width="413dp"
         android:layout_height="385dp"
         android:background="#FFFFFF"
