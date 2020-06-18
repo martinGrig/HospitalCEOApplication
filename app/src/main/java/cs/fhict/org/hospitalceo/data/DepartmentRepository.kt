@@ -43,6 +43,19 @@ class DepartmentRepository(depData : DepartmentRemoteDataSource?) : DepartmentDa
     }
 
     override fun getDepartment(id: Int, callback: DepartmentDataSource.LoadDepartmentCallBack) {
-        TODO("Not yet implemented")
+        depData?.getDepartment(id,object :DepartmentDataSource.LoadDepartmentCallBack{
+            override fun onDepartmentLoaded(department: Department) {
+                callback.onDepartmentLoaded(department)
+            }
+
+            override fun onDataNotAvailable() {
+             callback.onDataNotAvailable()
+            }
+
+            override fun onError(t: Throwable) {
+                callback.onError(t)
+            }
+
+        })
     }
 }

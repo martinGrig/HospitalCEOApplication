@@ -8,18 +8,12 @@ interface DashboardContract {
 
     interface View : IBaseFragment {
         fun goToDepartmentDetails();
+        fun showDepartmentNotifications(depNotifications : ArrayList<Department>)
     }
 
-    //ItemView
-    interface ItemView {
-        fun bindItem(item: Department)
-    }
 
     interface Presenter : IBasePresenter<View> {
-        //counter of items (notifications)
-        val itemCount: Int
-        //starts a new Activity when item clicked
-        fun onItemClicked(pos: Int)
-        fun onBindItemView(itemView: ItemView, pos: Int)
+      fun getDepartments()
+
     }
 }

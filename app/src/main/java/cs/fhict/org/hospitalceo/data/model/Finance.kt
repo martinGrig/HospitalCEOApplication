@@ -1,6 +1,7 @@
 package cs.fhict.org.hospitalceo.data.model
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -34,6 +35,7 @@ data class New_insurance_contracts(
 
 
 //ROOM LOCAL DATABASE ONLY
+@Entity(tableName = "finance_table")
 data class Expense(
     @PrimaryKey @ColumnInfo(name = "title")  val title : String?,
     val date : Date?,

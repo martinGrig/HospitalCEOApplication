@@ -24,7 +24,7 @@ abstract  class FinanceRoomDatabase() : RoomDatabase() {
             instance = Room.databaseBuilder(
                 context.applicationContext,
                 FinanceRoomDatabase::class.java,
-                "books-db"
+                "finance_table"
             )
                 .allowMainThreadQueries()
                 .build()

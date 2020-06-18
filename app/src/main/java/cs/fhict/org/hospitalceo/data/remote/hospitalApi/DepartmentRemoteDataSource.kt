@@ -66,7 +66,27 @@ class DepartmentRemoteDataSource  : DepartmentDataSource {
     }
 
     override fun getDepartment(id: Int, callback: DepartmentDataSource.LoadDepartmentCallBack) {
-      Log.d("DO","DO something"); // dgetSingleDepartment does not  work
+        val call: Call<Department> = ApiClient.getClient.getDepartment(id)
+
+        call.enqueue(object : Callback<Department> {
+            override fun onFailure(call: Call<Department>, t: Throwable) {
+                Log.d("TAG FAIL", t.message!!)
+
+                callback.onError(t);
+
+            }
+            override fun onResponse(call: Call<Department>, response: Response<Department>) {
+                if (response.isSuccessful) {
+                    Log.d("TAG SUCCESS", response.toString())
+
+                    val department: Department = response.body()!!
+                    callback.onDepartmentLoaded(department)
+
+                } else {
+                    callback.onDataNotAvailable();
+                }
+            }
+        })
     }
 
 }

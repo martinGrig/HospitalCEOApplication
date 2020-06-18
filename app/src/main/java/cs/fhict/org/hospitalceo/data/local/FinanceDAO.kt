@@ -10,7 +10,14 @@ import cs.fhict.org.hospitalceo.data.model.Expense
 @Dao
 interface FinanceDAO {
 
-    @Query("Select * FROM finance_expenses")
+    // LiveData is a data holder class that can be observed within a given lifecycle.
+    // Always holds/caches latest version of data. Notifies its active observers when the
+    // data has changed. Since we are getting all the contents of the database,
+    // we are notified whenever any of the database contents have changed.
+//    @Query("SELECT * from finance_expenses ORDER BY expense ASC")
+//    fun getExpensesLocally(): LiveData<List<Expense>>
+
+    @Query("Select * FROM finance_table")
     fun getExpenses(): Array<Expense?>?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

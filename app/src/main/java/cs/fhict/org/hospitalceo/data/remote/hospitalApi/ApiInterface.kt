@@ -46,8 +46,8 @@ public interface HospitalInterface  {
     @GET("departments/count")
     fun getDepartmentsCount(): Call<Int>
 
-    @GET("departments/?{name}?") // not working because there is no id, talk to clients to fix it
-    fun getDepartment(@Path("name")   name: String?) : Call<Department>
+    @GET("departments/{id}") // not working because there is no id, talk to clients to fix it
+    fun getDepartment(@Path("id")   id: Int?) : Call<Department>
 
     //EMPLOYEES
     @GET("employees")
