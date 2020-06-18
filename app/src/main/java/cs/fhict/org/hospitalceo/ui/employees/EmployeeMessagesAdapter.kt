@@ -30,7 +30,6 @@ class EmployeeMessagesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
             is MessageViewHolder -> {
                 holder.bind(items.get(position))
             }
-
         }
     }
 

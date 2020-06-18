@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statisticLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    tools:ignore="HardcodedText" >
+    
+    <TextView
+        android:id="@+id/pbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:fontFamily="@font/roboto_slab"
+        android:text="Statictic"
+        android:textColor="#666666"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pbarText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pbarTitle"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:fontFamily="@font/roboto_slab"
+        android:text="X out of Y"
+        android:textColor="#212121"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/pbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="0dp"
+        android:progressTint="#524FB2"
+        android:layout_below="@+id/pbarText"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+</RelativeLayout>
