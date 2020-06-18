@@ -1,5 +1,6 @@
 package cs.fhict.org.hospitalceo.data
 
+import cs.fhict.org.hospitalceo.data.local.FinancesLocalRepository
 import cs.fhict.org.hospitalceo.data.model.Finance
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.FinanceRemoteDataSource
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.MedicineRemoteDataSource
@@ -7,6 +8,8 @@ import cs.fhict.org.hospitalceo.data.remote.hospitalApi.MedicineRemoteDataSource
 class FinanceRepository(financeData : FinanceRemoteDataSource?)  : FinanceDataSource {
 
     var financeData = financeData?.getInstance()
+
+
 
     override fun getFinances(callback: FinanceDataSource.LoadFinanceCallback) {
         financeData?.getFinances(object : FinanceDataSource.LoadFinanceCallback{

@@ -1,53 +1,47 @@
 package cs.fhict.org.hospitalceo.ui.finance
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import cs.fhict.org.hospitalceo.data.model.Employee
-import cs.fhict.org.hospitalceo.data.model.EmployeeMessage
-import cs.fhict.org.hospitalceo.data.model.Finance
-import cs.fhict.org.hospitalceo.ui.employees.EmployeeContract
+import cs.fhict.org.hospitalceo.data.model.Expense
 import cs.fhict.org.hospitalmanagement.R
-import kotlinx.android.synthetic.main.employee_fav_item.view.*
-import kotlinx.android.synthetic.main.employee_msg_item.view.*
-import kotlinx.android.synthetic.main.employee_msg_item.view.fav_emp_name
+import kotlinx.android.synthetic.main.finance_list.view.*
 
-class FinanceAdapter(private var finances : ArrayList<Finance>) : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() {
+class FinanceAdapter(private var finances : ArrayList<Expense>,val context: Context) : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FinanceViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.finance_list, parent, false)
-        return FinanceViewHolder(finances,view)
+        val view = LayoutInflater.from(context).inflate(R.layout.finance_list, parent, false)
+        return FinanceViewHolder(view)
     }
 
-    override fun getItemCount(): Int =   finances!!.size
+    override fun getItemCount(): Int = finances.size
 
     override fun onBindViewHolder(holder: FinanceViewHolder, position: Int) {
 
-        Log.d("SIZE SSS", finances?.size.toString())
-        finances?.get(position).let {
-            holder.bindItem(it)
-        }
+        holder.nameTextView.text = finances[position].title
+        holder.bodyTextView.text = finances[position].amount.toString()
+        holder.dateTextView.text = finances[position].date.toString()
+
     }
 
-    class FinanceViewHolder(private var finances : ArrayList<Finance>, itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView),
-        FinanceContract.ItemView{
+    class FinanceViewHolder(view:View) : RecyclerView.ViewHolder(view) , View.OnClickListener{
 
-        var nameTextView: TextView = itemLayoutView.fav_emp_name
+        var nameTextView: TextView = view.expense_name
+        var bodyTextView : TextView = view.expense_description
+        var dateTextView : TextView = view.expense_date
 
         init {
-            itemLayoutView.setOnClickListener {
-
-                val fins = finances?.get(adapterPosition)
-
-            }
+            view.setOnClickListener (this)
         }
-        override fun bindItem(item: Finance) {
-            Log.d("NAME AND JOB",  item.income.toString())
-            nameTextView.text = item.costs.toString()
+
+
+        override fun onClick(p0: View?) {
+
         }
     }
 

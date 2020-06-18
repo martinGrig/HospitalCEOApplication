@@ -12,12 +12,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-@Database(entities = arrayOf(Employee::class), version = 1, exportSchema = false)
+@Database(entities = [Employee::class], version = 1)
 abstract class EmployeeRoomDatabase : RoomDatabase() {
 
+    private var instance: EmployeeRoomDatabase? = null
     abstract fun employeeDAO(): EmployeeDAO
 
-    class EmployeeDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
+/*    class EmployeeDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
 
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
@@ -62,23 +63,20 @@ abstract class EmployeeRoomDatabase : RoomDatabase() {
 
     companion object{
         @Volatile
-        private var INSTANCE: EmployeeRoomDatabase? = null
+        private var INSTANCE: EmployeeRoomDatabase? = null*/
 
-        fun getDatabase(
-            context: Context,
-            scope: CoroutineScope
-        ): EmployeeRoomDatabase {
-            return INSTANCE ?: synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    EmployeeRoomDatabase::class.java,
-                    "employees_database"
-                )
-            .addCallback(EmployeeDatabaseCallback(scope))
-            .build()
-            INSTANCE = instance
-            instance
-            }
+    fun getAppDatabase(
+        context: Context
+    ): EmployeeRoomDatabase? {
+        if (instance == null) {
+            val instance = Room.databaseBuilder(
+                context.applicationContext,
+                EmployeeRoomDatabase::class.java,
+                "employees_database"
+            )
+                .allowMainThreadQueries()
+                .build()
         }
+        return instance
     }
 }

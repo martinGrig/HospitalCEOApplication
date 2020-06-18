@@ -22,3 +22,8 @@
 
 .gradle/6.1.1/
 build/
+
+app/gradle
+app/gradlew
+app/gradlew.bat
+

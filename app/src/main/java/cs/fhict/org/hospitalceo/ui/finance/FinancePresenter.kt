@@ -1,11 +1,14 @@
 package cs.fhict.org.hospitalceo.ui.finance
 
+import cs.fhict.org.hospitalceo.data.local.FinanceRoomDatabase
+import cs.fhict.org.hospitalceo.data.local.FinancesLocalRepository
 import android.util.Log
 import cs.fhict.org.hospitalceo.data.FinanceDataSource
 import cs.fhict.org.hospitalceo.data.FinanceRepository
 import cs.fhict.org.hospitalceo.data.model.Finance
+import kotlin.math.exp
 
-class FinancePresenter(finRep: FinanceRepository) : FinanceContract.Presenter {
+class FinancePresenter(finRep: FinanceRepository, var expRepository: FinancesLocalRepository) : FinanceContract.Presenter {
     var view: FinanceContract.View? = null
     var finRep: FinanceRepository? = finRep
 
@@ -29,6 +32,11 @@ class FinancePresenter(finRep: FinanceRepository) : FinanceContract.Presenter {
         })
     }
 
+    override fun getExpensesRoom() {
+      var expenses =   expRepository.getExpenses()
+        view?.showExpenses(expenses!!)
+    }
+
     override fun onItemClicked(pos: Int) {
         TODO("Not yet implemented")
     }
@@ -40,3 +48,7 @@ class FinancePresenter(finRep: FinanceRepository) : FinanceContract.Presenter {
         this.view = null;
     }
 }
+
+
+
+

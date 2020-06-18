@@ -1,8 +1,11 @@
 package cs.fhict.org.hospitalceo.data.model
 
+import androidx.room.ColumnInfo
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
 
 data class Finance (
     @SerializedName("costs") val costs : Costs,
@@ -28,3 +31,11 @@ data class New_insurance_contracts(
     @SerializedName("today") val today : Int
 
 ) : Serializable
+
+
+//ROOM LOCAL DATABASE ONLY
+data class Expense(
+    @PrimaryKey @ColumnInfo(name = "title")  val title : String?,
+    val date : Date?,
+    val amount : Double?
+)

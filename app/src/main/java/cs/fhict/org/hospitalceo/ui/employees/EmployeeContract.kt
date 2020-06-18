@@ -10,19 +10,22 @@ interface EmployeeContract {
     interface View : IBaseFragment {
         fun goToEmployeeDetails(empId:Int);
         fun showFavouriteEmployees(emps : ArrayList<Employee>)
-    }
-
-    //ItemView
-    interface ItemView {
-        fun bindItem(item: Employee)
+        fun showMessagesEmployees(emps: ArrayList<Employee>)
     }
 
     interface Presenter : IBasePresenter<View> {
         //counter of items (notifications)
         fun getFavouriteEmployees()
+        fun getMessagesEmployees()
         val itemCount: Int
+
         //starts a new Activity when item clicked
         fun onItemClicked(pos: Int)
         fun onBindItemView(itemView: ItemView, pos: Int)
+    }
+
+    //ItemView
+    interface ItemView {
+        fun bindItem(item: Employee)
     }
 }

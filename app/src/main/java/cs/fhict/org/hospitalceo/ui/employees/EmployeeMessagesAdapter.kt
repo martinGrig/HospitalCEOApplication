@@ -1,73 +1,52 @@
 package cs.fhict.org.hospitalceo.ui.employees
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.employee_msg_item.view.*
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import cs.fhict.org.hospitalceo.data.model.EmployeeMessage
+import cs.fhict.org.hospitalceo.data.model.Employee
 import cs.fhict.org.hospitalmanagement.R
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.employee_msg_item.view.*
+import java.util.*
 
 
-class EmployeeMessagesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
+class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val context: Context) : RecyclerView.Adapter<EmployeeMessagesAdapter.MessageViewHolder>()
 {
-    private val TAG: String = "AppDebug"
 
-    private var items: List<EmployeeMessage> = ArrayList()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
         return MessageViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.employee_msg_item, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder) {
-
-            is MessageViewHolder -> {
-                holder.bind(items.get(position))
-            }
-        }
-    }
-
     override fun getItemCount(): Int {
-        return items.size
+        return emps.size
     }
 
-    fun submitList(msgList: List<EmployeeMessage>){
-        items = msgList
+    override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
+
+        holder.msg.text = emps[position].notification.body
+        holder.empName.text = """${emps[position].name_first} ${emps[position].name_last}"""
+        holder.date.text = emps[position].notification.date.toString()
+           // android.text.format.DateFormat.format("HH:mm dd/MM", emps[position].notification.date)
     }
 
 
+    class MessageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-    class MessageViewHolder
-    constructor(
-        itemView: View
-    ): RecyclerView.ViewHolder(itemView){
+        var msg: TextView = itemView.message_body
+        var empName: TextView = itemView.employee_name
+        var date: TextView = itemView.date
+        var icon: ImageView = itemView.imageView
 
-        val msg_title = itemView.message_body
-        val msg_body = itemView.fav_emp_name;
-
-        fun bind(employeeMessage: EmployeeMessage){
-
-            val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
-
-           // Glide.with(itemView.context)
-            //    .applyDefaultRequestOptions(requestOptions)
-           //     .load(employeeMessage.image)
-             //   .into(employeeMessage)
-            msg_title.setText(employeeMessage.title)
-            msg_body.setText(employeeMessage.body)
+        init {
+            itemView.setOnClickListener (this)
+        }
+        override fun onClick(v: View?) {
+            TODO("Not yet implemented")
         }
     }
-/// public interface  onMessageListener{
-//    fun  onClickLinstener(int position) {
-
-    //   }
-
 }

@@ -9,12 +9,9 @@ import cs.fhict.org.hospitalceo.data.model.Employee
 interface EmployeeDAO {
 
     @Query("SELECT * from employee_table ORDER BY id ASC")
-    fun getEmployees(): LiveData<List<Employee>>
+    fun getEmployees(): Array<Employee?>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(emp: Employee)
-
-    @Query("DELETE FROM employee_table")
-    suspend fun deleteAll()
+    fun insert(emp: Employee)
 
 }
