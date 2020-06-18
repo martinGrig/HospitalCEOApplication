@@ -23,9 +23,9 @@
         android:id="@+id/patientsChart"
         android:layout_width="307dp"
         android:layout_height="237dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_finances_background"
         android:elevation="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/rvFinances"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,11 +36,13 @@
         android:id="@+id/rvFinances"
         android:layout_width="413dp"
         android:layout_height="385dp"
+        android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patientsChart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,7 @@ class EmployeeMessagesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     ): RecyclerView.ViewHolder(itemView){
 
         val msg_title = itemView.message_body
-        val msg_body = itemView.fav_emp_name;
+      //  val msg_body = itemView.fav_emp_name;
 
         fun bind(employeeMessage: EmployeeMessage){
 
@@ -63,7 +63,7 @@ class EmployeeMessagesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
            //     .load(employeeMessage.image)
              //   .into(employeeMessage)
             msg_title.setText(employeeMessage.title)
-            msg_body.setText(employeeMessage.body)
+          //  msg_body.setText(employeeMessage.body)
         }
     }
 /// public interface  onMessageListener{

@@ -24,18 +24,17 @@ class EmployeeFragment : Fragment(), EmployeeContract.View {
     var presenter : EmployeePresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        val view : View = inflater.inflate(R.layout.fragment_employee, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         presenter = EmployeePresenter(EmployeeRepository(EmployeeRemoteDataSource().getInstance()))
         presenter?.onViewActive(this)
         // Inflate the layout for this fragment
         presenter?.getFavouriteEmployees()
-
-        val view : View = inflater.inflate(R.layout.fragment_employee, container, false)
-//
-//        view.recFavEmp.layoutManager = LinearLayoutManager(view.context)
-//        view.recFavEmp.adapter = FavouriteContactsAdapter(presenter)
-//
-//        view.recFavEmp.adapter?.notifyDataSetChanged()
-        return view
     }
 
     override fun onStart() {
@@ -49,8 +48,8 @@ class EmployeeFragment : Fragment(), EmployeeContract.View {
     }
 
     override fun showFavouriteEmployees(emps: ArrayList<Employee>) {
-        view?.recFavEmp?.layoutManager = LinearLayoutManager(view?.context)
-        view?.recFavEmp?.adapter = FavouriteContactsAdapter(emps)
+        view?.recFavEmp?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, true)
+        view?.recFavEmp?.adapter = view?.context?.let { FavouriteContactsAdapter(emps, it) }
 
         view?.recFavEmp?.adapter?.notifyDataSetChanged()
     }
