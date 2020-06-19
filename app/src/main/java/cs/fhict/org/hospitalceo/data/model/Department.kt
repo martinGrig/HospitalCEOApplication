@@ -9,22 +9,22 @@ import kotlin.collections.ArrayList
 data class Department (
     @Expose
     @SerializedName("id")
-    val id : String?,
+    val id : Int?,
     @Expose
     @SerializedName("patients")
-    val patients : ArrayList<Patient>,
+    val patients : ArrayList<Patient>?,
     @Expose
     @SerializedName("name")
     val name : String?,
     @Expose
     @SerializedName("employees")
-    val employees : ArrayList<Employee>,
+    val employees : ArrayList<Employee>?,
     @Expose
     @SerializedName("location")
     val location: String?,
     @Expose
     @SerializedName("beds")
-    val beds : ArrayList<Bed>?,
+    val beds : ArrayList<Bed>? = ArrayList(),
     //hardcoded
     @Expose(serialize=false)
     val notifications : ArrayList<DepartmentNotification>?
@@ -32,7 +32,7 @@ data class Department (
 ) : Serializable
 
 data class DepartmentNotification(
-    val id: Int?,
+    val id: String?,
     val department: Department?,
     val body : String?,
     val time : Date?,

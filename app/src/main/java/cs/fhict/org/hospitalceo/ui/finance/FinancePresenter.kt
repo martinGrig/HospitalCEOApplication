@@ -37,9 +37,7 @@ class FinancePresenter(finRep: FinanceRepository, var expRepository: FinancesLoc
         view?.showExpenses(expenses!!)
     }
 
-    override fun onItemClicked(pos: Int) {
-        TODO("Not yet implemented")
-    }
+
     override fun onViewActive(view: FinanceContract.View) {
         this.view = view;
     }

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import cs.fhict.org.hospitalceo.data.DepartmentRepository
 import cs.fhict.org.hospitalceo.data.model.Department
+import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.DepartmentRemoteDataSource
 import cs.fhict.org.hospitalceo.ui.finance.FinanceAdapter
 
@@ -35,17 +36,21 @@ class DashboardFragment : Fragment(),DashboardContract.View {
         dashboardPresenter = DashboardPresenter(DepartmentRepository(DepartmentRemoteDataSource().getInstance()))
         dashboardPresenter?.onViewActive(this)
         dashboardPresenter?.getDepartments()
+        dashboardPresenter?.getDepartment(1)
     }
 
     override fun goToDepartmentDetails() {
 
     }
 
-    override fun showDepartmentNotifications(depNotifications : ArrayList<Department>) {
+    override fun showDepartmentNotifications(depNotifications : ArrayList<DepartmentNotification>) {
+
+
         view?.depNotificationsRecyclerView?.layoutManager = LinearLayoutManager(activity)
         view?.depNotificationsRecyclerView?.adapter = view?.context?.let { DashboardAdapter(depNotifications, it) }
 
         view?.depNotificationsRecyclerView?.adapter?.notifyDataSetChanged()
+
     }
 
     override fun ShowToast(message: String?) {

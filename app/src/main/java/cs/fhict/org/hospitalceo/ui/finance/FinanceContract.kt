@@ -17,7 +17,7 @@ interface FinanceContract {
 
         fun getExpensesRoom()
         fun getFinances()
-        fun onItemClicked(pos: Int)
+
     }
 
     interface ItemView{
