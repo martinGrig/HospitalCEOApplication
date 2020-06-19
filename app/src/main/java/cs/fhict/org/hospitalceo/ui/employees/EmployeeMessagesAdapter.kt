@@ -1,9 +1,11 @@
 package cs.fhict.org.hospitalceo.ui.employees
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -30,10 +32,11 @@ class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val contex
 
         holder.msg.text = emps[position].notification.body
         holder.empName.text = """${emps[position].name_first} ${emps[position].name_last}"""
-        holder.date.text = emps[position].notification.date.toString()
-           // android.text.format.DateFormat.format("HH:mm dd/MM", emps[position].notification.date)
-    }
+        holder.date.text = android.text.format.DateFormat.format("HH:mm", emps[position].notification.date)
+        holder.icon.setImageResource(R.mipmap.head_icon_foreground)
 
+        //holder.btnCall.setOnClickListener()
+    }
 
     class MessageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
@@ -41,9 +44,11 @@ class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val contex
         var empName: TextView = itemView.employee_name
         var date: TextView = itemView.date
         var icon: ImageView = itemView.imageView
+        var btnCall: Button = itemView.btnCall
 
         init {
             itemView.setOnClickListener (this)
+            //btnCall.setOnClickListener(onClick(itemView))
         }
         override fun onClick(v: View?) {
             TODO("Not yet implemented")
