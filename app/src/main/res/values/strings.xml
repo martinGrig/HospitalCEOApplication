@@ -26,4 +26,7 @@
     <string name="profit">Profit</string>
     <string name="nothing" />
     <string name="expenses_date">22.06.2020</string>
+    <string name="str_by_time">Time</string>
+    <string name="str_by_department">Department</string>
+    <string name="str_by_priority">Priority</string>
 </resources>

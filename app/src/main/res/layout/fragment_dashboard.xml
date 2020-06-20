@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewAgenda"
         android:layout_width="0dp"
         android:layout_height="110dp"
         android:layout_marginStart="1dp"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tvOther"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewAgenda" />
 
     <TextView
         android:id="@+id/tvOther"
@@ -63,7 +63,7 @@
         android:text="@string/res_other"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/tvHospital"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewAgenda" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/depNotificationsRecyclerView"
@@ -79,4 +79,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHospital" />
+
+    <ImageView
+        android:id="@+id/notificationsMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@android:drawable/ic_menu_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toEndOf="@+id/tvOther"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewAgenda" />
 </androidx.constraintlayout.widget.ConstraintLayout>

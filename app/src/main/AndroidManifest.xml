@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs.fhict.org.hospitalmanagement">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_square"
@@ -9,12 +11,9 @@
         android:roundIcon="@mipmap/ic_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-    <activity android:name="cs.fhict.org.hospitalceo.ui.employeeDetails.EmployeeDetailsActivity" />
-
-        <activity android:name="cs.fhict.org.hospitalceo.ui.main.MainActivity">
-
-        </activity>
+        <activity android:name="cs.fhict.org.hospitalceo.ui.department.DepartmentActivity"></activity>
+        <activity android:name="cs.fhict.org.hospitalceo.ui.employeeDetails.EmployeeDetailsActivity" />
+        <activity android:name="cs.fhict.org.hospitalceo.ui.main.MainActivity"></activity>
         <activity android:name="cs.fhict.org.hospitalceo.ui.startingPage.ActivitySplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

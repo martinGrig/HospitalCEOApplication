@@ -1,13 +1,11 @@
 package cs.fhict.org.hospitalceo.ui.dashboard
 
 import android.util.Log
-import cs.fhict.org.hospitalceo.data.BedDataSource
-import cs.fhict.org.hospitalceo.data.BedsRepository
 import cs.fhict.org.hospitalceo.data.DepartmentDataSource
 import cs.fhict.org.hospitalceo.data.DepartmentRepository
 import cs.fhict.org.hospitalceo.data.model.Department
 import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
-import cs.fhict.org.hospitalceo.data.remote.hospitalApi.BedRemoteDataSource
+import cs.fhict.org.hospitalmanagement.R
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,6 +19,7 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
      depRep?.getDepartments(object : DepartmentDataSource.LoadDepartmentsCallBack{
          override fun onDepartmentsLoaded(departmentList: ArrayList<Department>) {
              val notifications : ArrayList<DepartmentNotification> = ArrayList()
+             val agenda : ArrayList<DepartmentNotification> = ArrayList()
 
              departmentList.forEach {
 
@@ -63,6 +62,16 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                          }
 
 
+                   department.employees?.forEach {
+                       if(it.job=="Secretaris") {
+                           agenda.add(
+                               DepartmentNotification(
+                                   department.id.toString(), department,
+                                   "Birthday is here", Date(), true
+                               )
+                           )
+                       }
+                   }
 //                         var countPatientNeedBeds = 0;
 //                         department.patients?.forEach {
 //                             if (it.bed_needed==true) {
@@ -76,7 +85,10 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                          notifications.forEach {
                              Log.d("TOPE",it.body)
                          }
+
+                         view?.setNotificationPriority(notifications )
                          view?.showDepartmentNotifications(notifications)
+                         view?.showAgendaNotifications(agenda)
 
                      }
 
@@ -130,6 +142,32 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
             }
         })
     }
+
+    override fun onSortNotifications(itemId: Int, list: ArrayList<DepartmentNotification>) {
+        var sortedList : List<DepartmentNotification>? = null
+        val sortedArray : ArrayList<DepartmentNotification> = ArrayList()
+
+        when (itemId) {
+            R.id.byPriority -> {
+               sortedList = list.sortedWith(compareByDescending { it.priority }) //compareByDescending to get them sorted by descending
+            }
+            R.id.byDepartment -> {
+                sortedList = list.sortedWith(compareBy { it.department?.name }) //compareByDescending to get them sorted by des
+            }
+            R.id.byTime -> {
+                sortedList = list.sortedWith(compareBy { it.time }) //compareByDescending to get them sorted by descending
+            }
+        }
+
+        sortedList?.forEach {
+            sortedArray.add(it)
+        }
+
+        view?.showDepartmentNotifications(sortedArray)
+
+    }
+
+
 
 
     override fun onViewActive(view: DashboardContract.View) {

@@ -1,6 +1,7 @@
 package cs.fhict.org.hospitalceo.ui.dashboard
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cs.fhict.org.hospitalceo.data.model.Department
 import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
 import cs.fhict.org.hospitalceo.data.model.Expense
+import cs.fhict.org.hospitalceo.ui.department.DepartmentActivity
 import cs.fhict.org.hospitalmanagement.R
 import kotlinx.android.synthetic.main.finance_list.view.*
 import kotlinx.android.synthetic.main.list_notifications.view.*
@@ -20,7 +22,7 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_notifications, parent, false)
-        return DashboardViewHolder(view)
+        return DashboardViewHolder(view,context)
     }
 
     override fun getItemCount(): Int = depNotifications.size
@@ -28,7 +30,7 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
 
 
-        var notification: DepartmentNotification = depNotifications[position]
+        val notification: DepartmentNotification = depNotifications[position]
 
         holder.nameTextView.text =  notification.department?.name//depNotifications[position].department?.name
         holder.bodyTextView.text = notification.body//depNotifications[position].body
@@ -42,12 +44,11 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
         }
 
 
-       // holder.bodyTextView.text = depNotifications[position].amount.toString()
-       // holder.dateTextView.text =  depNotifications[position].date.toString()
-
     }
 
-    class DashboardViewHolder(view: View) : RecyclerView.ViewHolder(view) , View.OnClickListener{
+    class DashboardViewHolder(view: View,context: Context) : RecyclerView.ViewHolder(view) , View.OnClickListener{
+
+        var context : Context = context
 
         var nameTextView: TextView = view.tvDepartmentName
         var bodyTextView : TextView = view.tvNotificationContent
@@ -59,6 +60,9 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
 
 
         override fun onClick(p0: View?) {
+            val intent : Intent = Intent(p0?.context, DepartmentActivity::class.java)
+            //  intent.putExtra("id",id)
+            context.startActivity(intent)
 
         }
     }
