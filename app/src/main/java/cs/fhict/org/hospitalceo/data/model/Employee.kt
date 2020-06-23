@@ -31,7 +31,7 @@ data class Notification(
     val date: Date?
 ) : Serializable
 
-enum class Gender : Serializable {
+public enum class Gender : Serializable {
     male,
     female
 }

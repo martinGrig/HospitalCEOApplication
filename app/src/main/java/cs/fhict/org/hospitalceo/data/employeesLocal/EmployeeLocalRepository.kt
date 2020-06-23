@@ -82,7 +82,7 @@ class EmployeeLocalRepository() {
             "Jermo",
             "I",
             "Chotoe",
-            Gender.male,
+            Gender.female,
             Date(1962, 5, 20),
             "Orthopedische chirurg",
             "Orthopedie",

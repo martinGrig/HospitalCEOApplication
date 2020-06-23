@@ -18,53 +18,6 @@ abstract class EmployeeRoomDatabase : RoomDatabase() {
     private var instance: EmployeeRoomDatabase? = null
     abstract fun employeeDAO(): EmployeeDAO
 
-/*    class EmployeeDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
-
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            super.onOpen(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    populateDatabase(database.employeeDAO())
-                }
-            }
-        }
-        suspend fun populateDatabase(employeeDAO: EmployeeDAO){
-            employeeDAO.deleteAll()
-
-            var employee = Employee(
-                1,
-                "Jermo",
-                "I",
-                "Chotoe",
-                Gender.male,
-                Date(1962, 5, 20),
-                "Orthopedische chirurg",
-                "Orthopedie",
-                Date(2019,7,31),
-                Notification("Urgent","I am sick",   Date(2020,6,12))
-            )
-            employeeDAO.insert(employee)
-
-            employee = Employee(
-                1,
-                "Richard",
-                "Z",
-                "Waterson",
-                Gender.male,
-                Date(1962, 5, 20),
-                "Orthopedische chirurg",
-                "Orthopedie",
-                Date(2019,7,31),
-                Notification("Urgent","I wanna die",   Date(2020,6,12))
-            )
-            employeeDAO.insert(employee)
-        }
-    }
-
-    companion object{
-        @Volatile
-        private var INSTANCE: EmployeeRoomDatabase? = null*/
-
     fun getAppDatabase(
         context: Context
     ): EmployeeRoomDatabase? {

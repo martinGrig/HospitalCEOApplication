@@ -2,6 +2,7 @@ package cs.fhict.org.hospitalceo.ui.main
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import cs.fhict.org.hospitalceo.ui.dashboard.DashboardFragment
 import cs.fhict.org.hospitalceo.ui.employees.EmployeeFragment
 import cs.fhict.org.hospitalceo.ui.finance.FinancesFragment
+import cs.fhict.org.hospitalmanagement.BuildConfig
 import cs.fhict.org.hospitalmanagement.R
 
 
@@ -34,6 +36,16 @@ class MainActivity : AppCompatActivity(),MainContract.View, BottomNavigationView
 
         mainPresenter?.onViewLoaded()
 
+        if (BuildConfig.DEBUG) {
+            // These flags cause the device screen to turn on (and bypass screen guard if possible) when launching.
+            // This makes it easy for developers to test the app launch without needing to turn on the device
+            // each time and without needing to enable the "Stay awake" option.
+            window.addFlags(
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                        or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+                        or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+            )
+        }
     }
 
     override fun onBackPressed() {
