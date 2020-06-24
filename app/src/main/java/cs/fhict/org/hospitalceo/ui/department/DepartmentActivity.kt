@@ -46,10 +46,20 @@ class DepartmentActivity : AppCompatActivity(), DepartmentContract.View{
         //linear layouts
         tvBeds.text = "Beds"
 
-        if (department.beds?.size!! >= department.patients?.size!!) {
-            val negativeNumber = department.patients.size - department.beds.size
+        var negativeNumber : Int?= null
+
+        if (department.beds?.size!! > department.patients?.size!!) {
+             negativeNumber =   department.beds.size - department.patients.size
+             tvBedsStats.text = "$negativeNumber beds before limit is reached"
+        }
+        else if (department.beds?.size!! < department.patients?.size!!) {
+            negativeNumber = department.patients.size - department.beds.size
             tvBedsStats.text = "$negativeNumber beds before limit is reached"
         }
+        else {
+            tvBedsStats.text = "There are no more  free beds in this department"
+        }
+
 
         progressBarBeds.max = 30
         progressBarBeds.progress = department.beds?.size?.toInt()!!
