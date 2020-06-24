@@ -32,7 +32,8 @@ class EmployeeLocalRepository() {
 
     private fun loadEmployees(){
         if (appDataBase == null) return
-
+        var cal: Calendar = Calendar.getInstance()
+        cal.set(2020, Calendar.JUNE, 20, 22,30)
         var employee = Employee(
             1,
             "Jermo",
@@ -44,10 +45,12 @@ class EmployeeLocalRepository() {
             "Orthopedie",
             Date(2019,7,31),
             Notification("Urgent","I am sick",
-            Date(2020,6,12))
+            cal.time
+            )
         )
         employeeEntities?.add(employee)
 
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
         employee = Employee(
             1,
             "Richard",
@@ -58,7 +61,7 @@ class EmployeeLocalRepository() {
         "Orthopedische chirurg",
         "Orthopedie",
         Date(2019,7,31),
-        Notification("Urgent","I wanna die",   Date(2020,6,12))
+        Notification("Urgent","I wanna die", cal.time)
         )
         employeeEntities?.add(employee)
         Log.d("EMPLOYEES", employeeEntities?.size.toString())
@@ -72,21 +75,25 @@ class EmployeeLocalRepository() {
 
     fun getEmployees(): ArrayList<Employee>?{
 
+        var cal: Calendar = Calendar.getInstance()
+        cal.set(2020, Calendar.JUNE, 20, 22,30)
         var employee = Employee(
             1,
             "Jermo",
             "I",
             "Chotoe",
-            Gender.male,
+            Gender.female,
             Date(1962, 5, 20),
             "Orthopedische chirurg",
             "Orthopedie",
             Date(2019,7,31),
             Notification("Urgent","I am sick",
-                Date(2020,6,12))
+                cal.time
+            )
         )
         employeeEntities?.add(employee)
 
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
         employee = Employee(
             1,
             "Richard",
@@ -97,7 +104,7 @@ class EmployeeLocalRepository() {
             "Orthopedische chirurg",
             "Orthopedie",
             Date(2019,7,31),
-            Notification("Urgent","I wanna die",   Date(2020,6,12))
+            Notification("Urgent","I wanna die", cal.time)
         )
         employeeEntities?.add(employee)
         Log.d("EMPLOYEES GET", employeeEntities?.size.toString())
