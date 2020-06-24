@@ -12,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="25dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
         app:cardMaxElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +30,8 @@
 
             <LinearLayout
                 android:id="@+id/linearLayoutNotification"
-                android:layout_width="20dp"
-                android:layout_height="148dp"
+                android:layout_width="25dp"
+                android:layout_height="0dp"
                 android:background="#FF5959"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="start|center_vertical"
                 android:text="@string/res_dep_name"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/linearLayoutNotification"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
                 android:layout_marginRight="15dp"
                 android:gravity="start|center_vertical"
                 android:text="@string/res_notification_content"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/btnCallDashboard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/linearLayoutNotification"
@@ -78,12 +78,13 @@
                 android:layout_marginRight="10dp"
                 android:gravity="center_vertical|end"
                 android:text="@string/res_time"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnCallDashboard"
+                style="@style/RobotoButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -92,12 +93,15 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/transparent_button"
                 android:text="Call"
+                android:textColor="#6866BC"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/linearLayoutNotification"
                 app:layout_constraintTop_toBottomOf="@+id/tvNotificationContent" />
 
             <Button
                 android:id="@+id/btnNotifyDashboard"
+                style="@style/RobotoButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -106,6 +110,8 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/transparent_button"
                 android:text="Notify"
+                android:textColor="#6866BC"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btnCallDashboard"
                 app:layout_constraintTop_toBottomOf="@+id/tvNotificationContent" />

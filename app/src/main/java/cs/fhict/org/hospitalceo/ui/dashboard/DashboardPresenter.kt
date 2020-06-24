@@ -34,14 +34,14 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                              notifications.add(
                                  DepartmentNotification(
                                      department.id.toString(), department,
-                                     "There is a lack of $negativeNumber beds in this department now", Date(), true
+                                     "There is a lack of $negativeNumber beds in this department now", Date(), true,1
                                  )
                              )
                          } else if (department.beds?.size!! == department.patients?.size!!) {
                              notifications.add(
                                  DepartmentNotification(
                                      department.id.toString(), department,
-                                     "All beds in this department have been occupied.", Date(), true
+                                     "All beds in this department have been occupied.", Date(), true,1
                                  )
                              )
                          } else if (department.beds?.size!! > department.patients?.size!!) {
@@ -54,7 +54,7 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                                          department,
                                          "It is only $positiveDifferece  beds before the limit of this department is reached",
                                          Date(),
-                                         false
+                                         false,1
                                      )
                                  )
                              }
@@ -98,6 +98,8 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                          view?.setNotificationPriority(notifications )
                          view?.showDepartmentNotifications(notifications)
                          view?.showAgendaNotifications(agenda)
+                         view?.setOtherNews()
+                         view?.setHospitalNews()
 
                      }
 
@@ -135,7 +137,7 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                 if (department.beds?.size!! >= department.patients?.size!!) {
                     var negativeNumber = department.patients.size - department.beds.size
                      notifications.add(DepartmentNotification(department.id.toString(),department,
-                         "$negativeNumber beds are needed ", Date(),true))
+                         "$negativeNumber beds are needed ", Date(),true,1))
                 }
 
                // view?.showDepartmentNotifications(notifications)
@@ -175,7 +177,20 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
 
     }
 
+    override fun getOtherNews() {
+        val otherNews : ArrayList<DepartmentNotification> = ArrayList()
 
+        otherNews.add(DepartmentNotification("Corona",null,"Corona cases in Maastricht have risen to 1500",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("Corona",null,"Total number of Corona cases in the Netherlands is 50 000",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("Health Ministry",null,"New budged for the Health Ministry has been approved",Date(),true,2 ))
+        otherNews.add(DepartmentNotification("Corona",null,"Corona cases in the USA are skyrocketing",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("World",null,"World Diabetes pressconfernce will take place in London ",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("World",null,"The EU is considering a new investments in Alzheimer research",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("Health Ministry",null,"New rules for health insurances to be announced next week",Date(),false,2 ))
+        otherNews.add(DepartmentNotification("Netherlands",null,"Dutch national dementia organization to host a new event next week",Date(),false ,2))
+
+        view?.showDepartmentNotifications(otherNews)
+    }
 
 
     override fun onViewActive(view: DashboardContract.View) {
