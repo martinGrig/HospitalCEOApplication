@@ -41,6 +41,7 @@
 
             <TextView
                 android:id="@+id/tvAgendaTitle"
+                style="@style/RobotoTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -75,6 +76,7 @@
 
             <TextView
                 android:id="@+id/tvAgendaTime"
+                style="@style/RobotoTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -40,6 +40,7 @@
 
             <TextView
                 android:id="@+id/tvDepartmentName"
+                style="@style/RobotoTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -71,6 +72,7 @@
 
             <TextView
                 android:id="@+id/tvTime"
+                style="@style/RobotoTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

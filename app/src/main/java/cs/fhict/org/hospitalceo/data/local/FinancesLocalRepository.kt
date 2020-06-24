@@ -37,14 +37,14 @@ class FinancesLocalRepository( ) {
         if (appDataBase == null) return
 
         expensesEntities?.add(Expense("Masks95", Date(),50000.0))
-        expensesEntities?.add(Expense("Insulin", Date(),50000.0))
-        expensesEntities?.add(Expense("Bed sheets", Date(),50000.0))
-        expensesEntities?.add(Expense("Food ingredients", Date(),50000.0))
-        expensesEntities?.add(Expense("Paracetamol", Date(),50000.0))
-        expensesEntities?.add(Expense("Oxygen", Date(),50000.0))
-        expensesEntities?.add(Expense("Chemicals", Date(),50000.0))
-        expensesEntities?.add(Expense("Patient Room 4", Date(),50000.0))
-        expensesEntities?.add(Expense("Patient Room 5", Date(),50000.0))
+        expensesEntities?.add(Expense("Insulin", Date(),40000.0))
+        expensesEntities?.add(Expense("Bed sheets", Date(),30000.0))
+        expensesEntities?.add(Expense("Food ingredients", Date(),230000.0))
+        expensesEntities?.add(Expense("Paracetamol", Date(),52000.0))
+        expensesEntities?.add(Expense("Oxygen", Date(),25000.0))
+        expensesEntities?.add(Expense("Chemicals", Date(),30000.0))
+        expensesEntities?.add(Expense("Patient Room 4", Date(),10000.0))
+        expensesEntities?.add(Expense("Patient Room 5", Date(),15000.0))
         Log.d("EXPENSES",expensesEntities?.size.toString())
     }
 
@@ -58,14 +58,14 @@ class FinancesLocalRepository( ) {
 
     fun getExpenses(): ArrayList<Expense>? {
         expensesEntities?.add(Expense("Masks95", Date(),50000.0))
-        expensesEntities?.add(Expense("Insulin", Date(),50000.0))
-        expensesEntities?.add(Expense("Bed sheets", Date(),50000.0))
-        expensesEntities?.add(Expense("Food ingredients", Date(),50000.0))
-        expensesEntities?.add(Expense("Paracetamol", Date(),50000.0))
-        expensesEntities?.add(Expense("Oxygen", Date(),50000.0))
-        expensesEntities?.add(Expense("Chemicals", Date(),50000.0))
-        expensesEntities?.add(Expense("Patient Room 4", Date(),50000.0))
-        expensesEntities?.add(Expense("Patient Room 5", Date(),50000.0))
+        expensesEntities?.add(Expense("Insulin", Date(),40000.0))
+        expensesEntities?.add(Expense("Bed sheets", Date(),30000.0))
+        expensesEntities?.add(Expense("Food ingredients", Date(),230000.0))
+        expensesEntities?.add(Expense("Paracetamol", Date(),52000.0))
+        expensesEntities?.add(Expense("Oxygen", Date(),25000.0))
+        expensesEntities?.add(Expense("Chemicals", Date(),30000.0))
+        expensesEntities?.add(Expense("Patient Room 4", Date(),10000.0))
+        expensesEntities?.add(Expense("Patient Room 5", Date(),15000.0))
         Log.d("EXPENSES GET",expensesEntities?.size.toString())
         loadExpenses()
         return expensesEntities
