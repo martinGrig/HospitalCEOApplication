@@ -1,8 +1,10 @@
 package cs.fhict.org.hospitalceo.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +29,7 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
 
     override fun getItemCount(): Int = depNotifications.size
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
 
 
@@ -34,13 +37,15 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
 
         holder.nameTextView.text =  notification.department?.name//depNotifications[position].department?.name
         holder.bodyTextView.text = notification.body//depNotifications[position].body
-        holder.dateTextView.text = notification.time.toString()
+        holder.dateTextView.text = android.text.format.DateFormat.format("d MMM HH:mm", notification.time) //notification.time.toString()
+        holder.tvInvisible.text = notification.id
+
 
         if (notification.priority==true) {
-            holder.linearLayoutPriority.setBackgroundColor(Color.RED)
+            holder.linearLayoutPriority.setBackgroundResource(R.color.colorRedPriority)
         }
         else {
-            holder.linearLayoutPriority.setBackgroundColor(Color.YELLOW)
+            holder.linearLayoutPriority.setBackgroundResource(R.color.colorOrangePriority)
         }
 
 
@@ -54,14 +59,17 @@ class DashboardAdapter(private var depNotifications : ArrayList<DepartmentNotifi
         var bodyTextView : TextView = view.tvNotificationContent
         var dateTextView : TextView = view.tvTime
         var linearLayoutPriority : LinearLayout = view.linearLayoutNotification
+        var tvInvisible : TextView = view.tvIdInvisible
         init {
             view.setOnClickListener (this)
         }
 
 
         override fun onClick(p0: View?) {
+            Log.d("INVISIBLE" , tvInvisible.text.toString())
             val intent : Intent = Intent(p0?.context, DepartmentActivity::class.java)
-            //  intent.putExtra("id",id)
+
+            intent.putExtra("id",tvInvisible.text.toString())
             context.startActivity(intent)
 
         }

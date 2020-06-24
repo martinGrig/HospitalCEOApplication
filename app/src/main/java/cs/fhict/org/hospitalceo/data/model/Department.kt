@@ -38,3 +38,17 @@ data class DepartmentNotification(
     val time : Date?,
     val priority: Boolean?
 )
+
+data class AgendaNotification(
+    val id: String?,
+    val body : String?,
+    val time : Date?,
+    val type : AgendaType?
+)
+
+enum class AgendaType {
+    BIRTHDAY,
+    EQUIPMENT,
+    DEPARTMENT
+
+}

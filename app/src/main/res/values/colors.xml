@@ -7,4 +7,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorPrimarySplash">#182883</color>
     <color name="colorPrimaryDarkSplash">#182883</color>
+    <color name="colorRedPriority">#FF5959</color>
+    <color name="colorOrangePriority">#FFB259</color>
 </resources>

@@ -29,7 +29,6 @@ class DepartmentRemoteDataSource  : DepartmentDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Department>>, response: Response<ArrayList<Department>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val departments : ArrayList<Department> = response.body()!!
                     callback.onDepartmentsLoaded(departments)
@@ -53,7 +52,6 @@ class DepartmentRemoteDataSource  : DepartmentDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val depCount: Int = response.body()!!
                     callback.onDepartmentsCountLoaded(depCount)
@@ -77,7 +75,6 @@ class DepartmentRemoteDataSource  : DepartmentDataSource {
             }
             override fun onResponse(call: Call<Department>, response: Response<Department>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val department: Department = response.body()!!
                     callback.onDepartmentLoaded(department)

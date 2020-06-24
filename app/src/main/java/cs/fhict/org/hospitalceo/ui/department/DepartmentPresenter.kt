@@ -1,23 +1,37 @@
 package cs.fhict.org.hospitalceo.ui.department
 
 import cs.fhict.org.hospitalceo.data.BedsRepository
+import cs.fhict.org.hospitalceo.data.DepartmentDataSource
+import cs.fhict.org.hospitalceo.data.DepartmentRepository
 import cs.fhict.org.hospitalceo.data.model.Bed
+import cs.fhict.org.hospitalceo.data.model.Department
+import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class DepartmentPresenter(bedRep: BedsRepository) : DepartmentContract.Presenter {
+class DepartmentPresenter(var departmentRepository: DepartmentRepository?) : DepartmentContract.Presenter {
     var view: DepartmentContract.View? = null;
-    var beds = ArrayList<Bed>() // can be done with interactor
-    var bedRep: BedsRepository = bedRep
 
-    override val itemCount: Int
-        get() = beds?.size!!
 
-    override fun onItemClicked(pos: Int) {
-        TODO("Not yet implemented")
-    }
 
-    override fun onBindItemView(itemView: DepartmentContract.ItemView, pos: Int) {
-        TODO("Not yet implemented")
+
+    override fun getDepartment(id: Int) {
+        departmentRepository?.getDepartment(id,object :DepartmentDataSource.LoadDepartmentCallBack{
+            override fun onDepartmentLoaded(department: Department) {
+
+                view?.updateView(department)
+
+            }
+
+            override fun onDataNotAvailable() {
+                view?.ShowToast("Data not available")
+            }
+
+            override fun onError(t: Throwable) {
+                view?.ShowToast(t.message)
+            }
+        })
     }
 
     override fun onViewActive(view: DepartmentContract.View) {

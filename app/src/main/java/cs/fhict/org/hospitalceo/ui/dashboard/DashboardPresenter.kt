@@ -3,6 +3,8 @@ package cs.fhict.org.hospitalceo.ui.dashboard
 import android.util.Log
 import cs.fhict.org.hospitalceo.data.DepartmentDataSource
 import cs.fhict.org.hospitalceo.data.DepartmentRepository
+import cs.fhict.org.hospitalceo.data.model.AgendaNotification
+import cs.fhict.org.hospitalceo.data.model.AgendaType
 import cs.fhict.org.hospitalceo.data.model.Department
 import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
 import cs.fhict.org.hospitalmanagement.R
@@ -19,7 +21,7 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
      depRep?.getDepartments(object : DepartmentDataSource.LoadDepartmentsCallBack{
          override fun onDepartmentsLoaded(departmentList: ArrayList<Department>) {
              val notifications : ArrayList<DepartmentNotification> = ArrayList()
-             val agenda : ArrayList<DepartmentNotification> = ArrayList()
+             val agenda : ArrayList<AgendaNotification> = ArrayList()
 
              departmentList.forEach {
 
@@ -27,21 +29,19 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                      override fun onDepartmentLoaded(department: Department) {
 
 
-                         Log.d("BERTER",department.name)
-
                          if (department.beds?.size!! < department.patients?.size!!) {
                              val negativeNumber = department.patients.size - department.beds.size
                              notifications.add(
                                  DepartmentNotification(
                                      department.id.toString(), department,
-                                     "$negativeNumber beds are needed ", Date(), true
+                                     "There is a lack of $negativeNumber beds in this department now", Date(), true
                                  )
                              )
                          } else if (department.beds?.size!! == department.patients?.size!!) {
                              notifications.add(
                                  DepartmentNotification(
                                      department.id.toString(), department,
-                                     "There are no more  beds", Date(), true
+                                     "All beds in this department have been occupied.", Date(), true
                                  )
                              )
                          } else if (department.beds?.size!! > department.patients?.size!!) {
@@ -52,7 +52,7 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                                      DepartmentNotification(
                                          department.id.toString(),
                                          department,
-                                         "$positiveDifferece  beds before limit is reached",
+                                         "It is only $positiveDifferece  beds before the limit of this department is reached",
                                          Date(),
                                          false
                                      )
@@ -65,9 +65,22 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
                    department.employees?.forEach {
                        if(it.job=="Secretaris") {
                            agenda.add(
-                               DepartmentNotification(
-                                   department.id.toString(), department,
-                                   "Birthday is here", Date(), true
+                               AgendaNotification(
+                                   "0",
+                                   "Secretary has birthday", Date(), AgendaType.BIRTHDAY
+                               )
+                           )
+                           agenda.add(
+                               AgendaNotification(
+                                   "0",
+                                   "Maintenance of electrical in Department Intensive Care", Date(), AgendaType.DEPARTMENT
+                               )
+                           )
+
+                           agenda.add(
+                               AgendaNotification(
+                                   "2",
+                                   "Ordered respirators will come tomorrow.", Date(), AgendaType.EQUIPMENT
                                )
                            )
                        }
@@ -81,10 +94,6 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
 //                             }
 //                         }
 
-                         Log.d("DOPE",notifications.size.toString())
-                         notifications.forEach {
-                             Log.d("TOPE",it.body)
-                         }
 
                          view?.setNotificationPriority(notifications )
                          view?.showDepartmentNotifications(notifications)
@@ -122,7 +131,6 @@ class DashboardPresenter(depRep : DepartmentRepository) : DashboardContract.Pres
             override fun onDepartmentLoaded(department: Department) {
                 val notifications : ArrayList<DepartmentNotification> = ArrayList()
                 //view?.ShowToast(departmentList[0].name)
-                Log.d("DEPARTMENT", department.beds?.size.toString())
 
                 if (department.beds?.size!! >= department.patients?.size!!) {
                     var negativeNumber = department.patients.size - department.beds.size

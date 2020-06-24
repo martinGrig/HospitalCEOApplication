@@ -24,7 +24,6 @@ class FinanceRemoteDataSource : FinanceDataSource {
             }
             override fun onResponse(call: retrofit2.Call<Finance>, response: Response<Finance>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
                     val finance : Finance = response.body()!!
                     callback.onFinanceLoaded(finance)
                 } else {

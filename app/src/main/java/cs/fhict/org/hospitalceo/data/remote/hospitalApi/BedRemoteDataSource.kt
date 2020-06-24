@@ -30,7 +30,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Bed>>, response: Response<ArrayList<Bed>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val beds : ArrayList<Bed> = response.body()!!
                     callback.onBedsLoaded(beds)
@@ -54,7 +53,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val bedCount: Int = response.body()!!
                     callback.onBedsCountLoaded(bedCount)
@@ -78,7 +76,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<Bed>, response: Response<Bed>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val bed : Bed = response.body()!!
                     callback.onBedLoaded(bed)
@@ -102,7 +99,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Bed>>, response: Response<ArrayList<Bed>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val beds : ArrayList<Bed> = response.body()!!
                     callback.onBedsLoaded(beds)
@@ -126,7 +122,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val bedCount: Int = response.body()!!
                     callback.onBedsCountLoaded(bedCount)
@@ -150,7 +145,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Bed>>, response: Response<ArrayList<Bed>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val beds : ArrayList<Bed> = response.body()!!
                     callback.onBedsLoaded(beds)
@@ -174,7 +168,6 @@ class BedRemoteDataSource  : BedDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val bedCount: Int = response.body()!!
                     callback.onBedsCountLoaded(bedCount)

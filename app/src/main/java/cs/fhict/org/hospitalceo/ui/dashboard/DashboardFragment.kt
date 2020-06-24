@@ -11,6 +11,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import cs.fhict.org.hospitalceo.data.DepartmentRepository
+import cs.fhict.org.hospitalceo.data.model.AgendaNotification
 import cs.fhict.org.hospitalceo.data.model.DepartmentNotification
 import cs.fhict.org.hospitalceo.data.remote.hospitalApi.DepartmentRemoteDataSource
 import cs.fhict.org.hospitalceo.ui.department.DepartmentActivity
@@ -62,7 +63,7 @@ class DashboardFragment : Fragment(),DashboardContract.View {
 
     }
 
-    override fun showAgendaNotifications(depNotifications: ArrayList<DepartmentNotification>) {
+    override fun showAgendaNotifications(depNotifications: ArrayList<AgendaNotification>) {
         view?.recyclerViewAgenda?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL, true)
 
         view?.recyclerViewAgenda?.adapter = view?.context?.let { DashboardAgendaAdapter(depNotifications, it) }
@@ -71,15 +72,20 @@ class DashboardFragment : Fragment(),DashboardContract.View {
     }
 
     override fun setNotificationPriority(depNotifications: ArrayList<DepartmentNotification>) {
+        if(depNotifications.isNotEmpty()) {
         notificationsMenu.setOnClickListener {
-            val popupMenu = PopupMenu(view?.context,it)
-            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
-                dashboardPresenter?.onSortNotifications(item!!.itemId,depNotifications)
-                true
-            })
+            if (it != null) {
 
-            popupMenu.inflate(R.menu.notifications_menu)
-            popupMenu.show()
+                val popupMenu = PopupMenu(view?.context, it)
+                popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+                    dashboardPresenter?.onSortNotifications(item!!.itemId, depNotifications)
+                    true
+                })
+
+                popupMenu.inflate(R.menu.notifications_menu)
+                popupMenu.show()
+                }
+            }
         }
     }
 

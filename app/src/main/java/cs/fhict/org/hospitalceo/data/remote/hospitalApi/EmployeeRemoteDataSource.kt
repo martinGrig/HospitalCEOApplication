@@ -31,7 +31,6 @@ import retrofit2.Response
              }
              override fun onResponse(call: retrofit2.Call<ArrayList<Employee>>, response: Response<ArrayList<Employee>>) {
                  if (response.isSuccessful) {
-                     Log.d("TAG SUCCESS", response.toString())
 
                      val employees : ArrayList<Employee> = response.body()!!
                      employees.forEach {
@@ -62,7 +61,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Employee>>, response: Response<ArrayList<Employee>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val employees : ArrayList<Employee> = response.body()!!
                     callback.onEmployeesLoaded(employees)
@@ -86,7 +84,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val empCount: Int = response.body()!!
                     callback.onEmployeesCountLoaded(empCount)
@@ -110,7 +107,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: Call<Employee>, response: Response<Employee>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val employee : Employee = response.body()!!
                     callback.onEmployeeLoaded(employee)
@@ -134,7 +130,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Employee>>, response: Response<ArrayList<Employee>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val employees : ArrayList<Employee> = response.body()!!
                     callback.onEmployeesLoaded(employees)
@@ -158,7 +153,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val empCount: Int = response.body()!!
                     callback.onEmployeesCountLoaded(empCount)
@@ -182,7 +176,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Employee>>, response: Response<ArrayList<Employee>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val employees : ArrayList<Employee> = response.body()!!
                     callback.onEmployeesLoaded(employees)
@@ -206,7 +199,6 @@ import retrofit2.Response
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val empCount: Int = response.body()!!
                     callback.onEmployeesCountLoaded(empCount)

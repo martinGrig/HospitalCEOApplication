@@ -30,7 +30,7 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Patient>>, response: Response<ArrayList<Patient>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
+
 
                     val patients : ArrayList<Patient> = response.body()!!
                     callback.onPatientsLoaded(patients)
@@ -54,7 +54,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patientCount: Int = response.body()!!
                     callback.onPatientsCountLoaded(patientCount)
@@ -78,7 +77,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: retrofit2.Call<Patient>, response: Response<Patient>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patient : Patient = response.body()!!
                     callback.onPatientLoaded(patient)
@@ -126,7 +124,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patientCount: Int = response.body()!!
                     callback.onPatientsCountLoaded(patientCount)
@@ -150,7 +147,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Patient>>, response: Response<ArrayList<Patient>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patients : ArrayList<Patient> = response.body()!!
                     callback.onPatientsLoaded(patients)
@@ -174,8 +170,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
-
                     val patientCount: Int = response.body()!!
                     callback.onPatientsCountLoaded(patientCount)
 
@@ -198,7 +192,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: retrofit2.Call<ArrayList<Patient>>, response: Response<ArrayList<Patient>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patients : ArrayList<Patient> = response.body()!!
                     callback.onPatientsLoaded(patients)
@@ -222,7 +215,6 @@ class PatientRemoteDataSource : PatientDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val patientCount: Int = response.body()!!
                     callback.onPatientsCountLoaded(patientCount)

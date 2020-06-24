@@ -29,7 +29,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Medicine>>, response: Response<ArrayList<Medicine>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medicines : ArrayList<Medicine> = response.body()!!
                     callback.onMedicinesLoaded(medicines)
@@ -53,7 +52,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medsCount: Int = response.body()!!
                     callback.onMedicinesCountLoaded(medsCount)
@@ -77,7 +75,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<Medicine>, response: Response<Medicine>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medicine : Medicine = response.body()!!
                     callback.onMedicineLoaded(medicine)
@@ -101,7 +98,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Medicine>>, response: Response<ArrayList<Medicine>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medicines : ArrayList<Medicine> = response.body()!!
                     callback.onMedicinesLoaded(medicines)
@@ -125,7 +121,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medsCount: Int = response.body()!!
                     callback.onMedicinesCountLoaded(medsCount)
@@ -149,7 +144,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<ArrayList<Medicine>>, response: Response<ArrayList<Medicine>>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
 
                     val medicines : ArrayList<Medicine> = response.body()!!
                     callback.onMedicinesLoaded(medicines)
@@ -173,8 +167,6 @@ class MedicineRemoteDataSource : MedicineDataSource {
             }
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
-                    Log.d("TAG SUCCESS", response.toString())
-
                     val medsCount: Int = response.body()!!
                     callback.onMedicinesCountLoaded(medsCount)
 

@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="res_celebrate">Celebrate Today</string>
+    <string name="res_celebrate">Agenda Today</string>
     <string name="res_hospital">Hospital</string>
     <string name="res_other">Other</string>
     <string name="res_dep_name">Department</string>
