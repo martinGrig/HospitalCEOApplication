@@ -24,6 +24,7 @@
         android:text="@string/res_celebrate"
         android:textAllCaps="false"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewAgenda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
@@ -31,11 +32,7 @@
         android:id="@+id/recyclerViewAgenda"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/notificationsMenu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,9 +41,10 @@
 
     <TextView
         android:id="@+id/tvHospital"
+        style="@style/RobotoTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:text="@string/res_hospital"
         android:textSize="18sp"
@@ -58,9 +56,10 @@
 
     <TextView
         android:id="@+id/tvOther"
+        style="@style/RobotoTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="15dp"

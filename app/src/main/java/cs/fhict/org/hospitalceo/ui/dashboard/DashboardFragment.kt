@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import cs.fhict.org.hospitalceo.data.DepartmentRepository
 import cs.fhict.org.hospitalceo.data.model.AgendaNotification
@@ -52,11 +53,8 @@ class DashboardFragment : Fragment(),DashboardContract.View {
 
     override fun showDepartmentNotifications(depNotifications : ArrayList<DepartmentNotification>) {
 
-
         view?.depNotificationsRecyclerView?.layoutManager = LinearLayoutManager(activity)
-
         view?.depNotificationsRecyclerView?.adapter = view?.context?.let { DashboardAdapter(depNotifications, it) }
-
         view?.depNotificationsRecyclerView?.adapter?.notifyDataSetChanged()
 
 
@@ -66,9 +64,11 @@ class DashboardFragment : Fragment(),DashboardContract.View {
     override fun showAgendaNotifications(depNotifications: ArrayList<AgendaNotification>) {
         view?.recyclerViewAgenda?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL, true)
 
+
         view?.recyclerViewAgenda?.adapter = view?.context?.let { DashboardAgendaAdapter(depNotifications, it) }
 
         view?.recyclerViewAgenda?.adapter?.notifyDataSetChanged()
+
     }
 
     override fun setNotificationPriority(depNotifications: ArrayList<DepartmentNotification>) {
@@ -86,6 +86,28 @@ class DashboardFragment : Fragment(),DashboardContract.View {
                 popupMenu.show()
                 }
             }
+        }
+    }
+
+    override fun setOtherNews() {
+
+        tvOther.setOnClickListener {
+
+
+            tvOther.isSelected = true
+            tvOther.textSize = 26F
+            tvHospital.textSize = 18F
+            dashboardPresenter?.getOtherNews()
+        }
+
+    }
+
+    override fun setHospitalNews() {
+        tvHospital.setOnClickListener {
+            tvHospital.isSelected = true
+            tvHospital.textSize = 26F
+            tvOther.textSize = 18F
+            dashboardPresenter?.getDepartments()
         }
     }
 

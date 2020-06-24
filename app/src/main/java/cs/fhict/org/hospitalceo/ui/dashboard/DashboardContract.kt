@@ -13,14 +13,15 @@ interface DashboardContract {
         fun showDepartmentNotifications(depNotifications : ArrayList<DepartmentNotification>)
         fun showAgendaNotifications(depNotifications : ArrayList<AgendaNotification>)
         fun setNotificationPriority(depNotifications : ArrayList<DepartmentNotification>)
+        fun setOtherNews()
+        fun setHospitalNews()
     }
 
 
     interface Presenter : IBasePresenter<View> {
-      fun getDepartments()
-      fun getDepartment(id : Int)
-      fun onSortNotifications(itemId:Int, list:  ArrayList<DepartmentNotification>)
-
-
+        fun getDepartments()
+        fun getDepartment(id : Int)
+        fun onSortNotifications(itemId:Int, list:  ArrayList<DepartmentNotification>)
+        fun getOtherNews()
     }
 }
