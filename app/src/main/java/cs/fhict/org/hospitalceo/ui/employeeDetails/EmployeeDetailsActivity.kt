@@ -6,53 +6,51 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import cs.fhict.org.hospitalceo.data.DepartmentRepository
+import cs.fhict.org.hospitalceo.data.EmployeeRepository
+import cs.fhict.org.hospitalceo.data.employeesLocal.EmployeeLocalRepository
+import cs.fhict.org.hospitalceo.data.model.Employee
+import cs.fhict.org.hospitalceo.data.remote.hospitalApi.DepartmentRemoteDataSource
+import cs.fhict.org.hospitalceo.data.remote.hospitalApi.EmployeeRemoteDataSource
 import cs.fhict.org.hospitalceo.ui.dashboard.DashboardFragment
+import cs.fhict.org.hospitalceo.ui.department.DepartmentPresenter
 import cs.fhict.org.hospitalmanagement.R
 import kotlinx.android.synthetic.main.activity_employee_details.*
 
 class EmployeeDetailsActivity : AppCompatActivity(),EmployeeDetailsContract.View {
 
     var presenter: EmployeeDetailsPresenter? = null
-/*
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_details)
 
-        val extraID = intent.getIntExtra(idTAG,0)
-        Log.d(idTAG, extraID.toString())
-        presenter = EmployeeDetailsPresenter(extraID)
+        val extraID = intent.getStringExtra("id")
 
-        presenter?.onViewActive(this)
+        presenter = EmployeeDetailsPresenter(EmployeeRepository(EmployeeRemoteDataSource().getInstance()), EmployeeLocalRepository())
+        presenter?.onViewActive(this);
 
-        presenter?.getEmployee()
-
+        when(intent.getStringExtra("adapter")){
+            "Fav" -> presenter?.getFavouriteEmployee(extraID.toInt())
+            "Mes" -> presenter?.getMessagesEmployee(extraID.toInt())
+            else -> { Log.d("Details", "No adapter found")}
+        }
     }
 
-    override fun updateViewData() {
-        employeeDetailsName.text = presenter?.showPhotoTitle()
-        showText("Title shown!")
-    }
+    override fun updateView(employee: Employee) {
+        if(employee.gender.toString() == "female") employeeImage.setImageResource(R.mipmap.female_nurse)
+        else employeeImage.setImageResource(R.mipmap.male_nurse)
 
+        employeeDetailsName.text = employee.name_first + " " +  employee.name_last
+        employeeBirthday.text = employee.birthday.toString()
+        employeeJobStart.text = employee.job_start.toString()
 
-
-    override fun showText(message: String) {
-        Toast.makeText(this,message, Toast.LENGTH_LONG).show()
-    }
-
- */
-    override fun onStart() {
-        presenter?.onViewActive(this)
-        super.onStart()
-    }
-    override fun onDestroy() {
-        presenter!!.onViewInactive()
-        presenter = null
-        super.onDestroy()
+        employeeJob.text = employee.job
+        employeePhone.text = "06 12345678"
 
     }
 
     override fun ShowToast(message: String?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
 }

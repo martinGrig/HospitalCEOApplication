@@ -43,6 +43,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/employeeImage"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -91,21 +92,19 @@
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:text="Data"
-                    android:paddingTop="10dp"
                     android:gravity="center"
-                    >
-                </TextView>
+                    android:paddingTop="10dp"
+                    android:text="Birthday"></TextView>
+
                 <TextView
+                    android:id="@+id/employeeBirthday"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:text="Birthday"
                     android:layout_gravity="center"
                     android:gravity="center"
 
                     android:paddingTop="10dp"
-                    >
-                </TextView>
+                    android:text="Date"></TextView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="200dp"
@@ -114,26 +113,25 @@
                 android:paddingTop="10dp"
                 android:orientation="vertical"
                 >
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:text="Data"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+
+                    android:text="Started Working"></TextView>
+
+                <TextView
+                    android:id="@+id/employeeJobStart"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:gravity="center"
 
                     android:paddingTop="10dp"
-                    >
-                </TextView>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Annivarsary"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-
-                    android:paddingTop="10dp"
-                    >
-                </TextView>
+                    android:text="Date"></TextView>
 
             </LinearLayout>
         </LinearLayout>
@@ -178,14 +176,14 @@
                 android:paddingTop="10dp"
                 android:text="Job title:"
                 android:textSize="15dp"></TextView>
+
             <TextView
+                android:id="@+id/employeeJob"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:text=" Data"
-                android:textSize="20dp"
                 android:paddingTop="10dp"
-                >
-            </TextView>
+                android:text=" Data"
+                android:textSize="20dp"></TextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,14 +200,14 @@
                 android:paddingTop="10dp"
                 >
             </TextView>
+
             <TextView
+                android:id="@+id/employeePhone"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:text="Data"
-                android:textSize="20dp"
                 android:paddingTop="10dp"
-                >
-            </TextView>
+                android:text="Data"
+                android:textSize="20dp"></TextView>
 
 
         </LinearLayout>

@@ -13,9 +13,6 @@ import kotlin.collections.ArrayList
 class DepartmentPresenter(var departmentRepository: DepartmentRepository?) : DepartmentContract.Presenter {
     var view: DepartmentContract.View? = null;
 
-
-
-
     override fun getDepartment(id: Int) {
         departmentRepository?.getDepartment(id,object :DepartmentDataSource.LoadDepartmentCallBack{
             override fun onDepartmentLoaded(department: Department) {

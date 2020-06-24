@@ -38,6 +38,8 @@ class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val contex
         holder.msg.text = emps[position].notification.body
         holder.empName.text = """${emps[position].name_first} ${emps[position].name_last}"""
         holder.date.text = android.text.format.DateFormat.format("d MMM HH:mm", emps[position].notification.date)
+        holder.id = emps[position].id.toString()
+
         if(emps[position].gender.toString() == "female") holder.icon.setImageResource(R.mipmap.female_nurse)
         else holder.icon.setImageResource(R.mipmap.male_nurse)
 
@@ -58,7 +60,7 @@ class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val contex
         var icon: ImageView = itemView.imageView
         var btnCall: Button = itemView.btnCall
         var btnMsg: Button = itemView.btnMessage
-        val id: String = itemView.lblID.text as String
+        var id: String = itemView.lblID.text as String
 
         init {
             itemView.setOnClickListener (this)
@@ -66,6 +68,7 @@ class EmployeeMessagesAdapter(private var emps : ArrayList<Employee>, val contex
         override fun onClick(v: View?) {
             val intent : Intent = Intent(v?.context, EmployeeDetailsActivity::class.java)
             intent.putExtra("id", id)
+            intent.putExtra("adapter", "Mes")
             v?.context?.startActivity(intent)
         }
     }

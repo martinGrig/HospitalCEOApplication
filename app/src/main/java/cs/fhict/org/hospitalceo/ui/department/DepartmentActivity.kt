@@ -54,10 +54,10 @@ class DepartmentActivity : AppCompatActivity(), DepartmentContract.View{
         }
         else if (department.beds?.size!! < department.patients?.size!!) {
             negativeNumber = department.patients.size - department.beds.size
-            tvBedsStats.text = "$negativeNumber beds before limit is reached"
+            tvBedsStats.text = "$negativeNumber patients are still waiting for a bed"
         }
         else {
-            tvBedsStats.text = "There are no more  free beds in this department"
+            tvBedsStats.text = "There are no more free beds in this department"
         }
 
 
@@ -65,7 +65,7 @@ class DepartmentActivity : AppCompatActivity(), DepartmentContract.View{
         progressBarBeds.progress = department.beds?.size?.toInt()!!
 
         tvStaff.text = "Staff"
-        tvStaffStats.text = "10 out of ${department.employees?.size} are on shift"
+        tvStaffStats.text = "${department.employees?.size?.div(3)} out of ${department.employees?.size} are on shift"
         progressBarStaff.max = 30
         progressBarStaff.progress = 10
 

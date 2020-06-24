@@ -30,42 +30,6 @@ class EmployeeLocalRepository() {
         return instance
     }
 
-    private fun loadEmployees(){
-        if (appDataBase == null) return
-        var cal: Calendar = Calendar.getInstance()
-        cal.set(2020, Calendar.JUNE, 20, 22,30)
-        var employee = Employee(
-            1,
-            "Jermo",
-            "I",
-            "Chotoe",
-            Gender.male,
-            Date(1962, 5, 20),
-            "Orthopedische chirurg",
-            "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I am sick",
-            cal.time
-            )
-        )
-        employeeEntities?.add(employee)
-
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
-        employee = Employee(
-            1,
-            "Richard",
-        "Z",
-        "Waterson",
-        Gender.male,
-        Date(1962, 5, 20),
-        "Orthopedische chirurg",
-        "Orthopedie",
-        Date(2019,7,31),
-        Notification("Urgent","I wanna die", cal.time)
-        )
-        employeeEntities?.add(employee)
-        Log.d("EMPLOYEES", employeeEntities?.size.toString())
-    }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
@@ -107,9 +71,76 @@ class EmployeeLocalRepository() {
             Notification("Urgent","I wanna die", cal.time)
         )
         employeeEntities?.add(employee)
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        employee = Employee(
+            1,
+            "Richard",
+            "Z",
+            "Waterson",
+            Gender.male,
+            Date(1962, 5, 20),
+            "Orthopedische chirurg",
+            "Orthopedie",
+            Date(2019,7,31),
+            Notification("Urgent","I wanna die", cal.time)
+        )
+        employeeEntities?.add(employee)
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        employee = Employee(
+            1,
+            "Richard",
+            "Z",
+            "Waterson",
+            Gender.male,
+            Date(1962, 5, 20),
+            "Orthopedische chirurg",
+            "Orthopedie",
+            Date(2019,7,31),
+            Notification("Urgent","I wanna die", cal.time)
+        )
+        employeeEntities?.add(employee)
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        employee = Employee(
+            1,
+            "Richard",
+            "Z",
+            "Waterson",
+            Gender.male,
+            Date(1962, 5, 20),
+            "Orthopedische chirurg",
+            "Orthopedie",
+            Date(2019,7,31),
+            Notification("Urgent","I wanna die", cal.time)
+        )
+        employeeEntities?.add(employee)
+        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        employee = Employee(
+            1,
+            "Richard",
+            "Z",
+            "Waterson",
+            Gender.male,
+            Date(1962, 5, 20),
+            "Orthopedische chirurg",
+            "Orthopedie",
+            Date(2019,7,31),
+            Notification("Urgent","I wanna die", cal.time)
+        )
+        employeeEntities?.add(employee)
+
         Log.d("EMPLOYEES GET", employeeEntities?.size.toString())
-        loadEmployees()
         return employeeEntities
+    }
+
+    fun getEmployee(id: Int): Employee?{
+        getEmployees()
+        employeeEntities?.forEach {
+            if(it.id == id) {
+                Log.d("Local Employee", "Found $id")
+                return it}
+        }
+    Log.d("Local Employee", "Not Found $id")
+    return null;
     }
 }
 

@@ -1,6 +1,7 @@
 package cs.fhict.org.hospitalceo.ui.employees
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cs.fhict.org.hospitalceo.data.model.Employee
 import cs.fhict.org.hospitalceo.data.model.Expense
+import cs.fhict.org.hospitalceo.ui.employeeDetails.EmployeeDetailsActivity
 import cs.fhict.org.hospitalmanagement.R
 import kotlinx.android.synthetic.main.employee_fav_item.view.*
 import kotlinx.android.synthetic.main.finance_list.view.*
@@ -31,21 +33,25 @@ class FavouriteContactsAdapter(private var favourites : ArrayList<Employee>, var
 
         holder.employeeNameTextView.text = employee.name_first
         //holder.imageEmployee
+        holder.id = employee.id.toString()
     }
 
-    class FavouriteContactsViewHolder(view : View ) : RecyclerView.ViewHolder(view) , View.OnClickListener{
+    class FavouriteContactsViewHolder(itemView : View ) : RecyclerView.ViewHolder(itemView) , View.OnClickListener{
 
-        var employeeNameTextView: TextView = view.employee_name
-        var imageEmployee : ImageView = view.imageViewProfileEmployee
+        var employeeNameTextView: TextView = itemView.employee_name
+        var imageEmployee : ImageView = itemView.imageViewProfileEmployee
+        var id: String = itemView.Id.text as String
 
 
         init {
-            view.setOnClickListener (this)
-
+            itemView.setOnClickListener (this)
             }
 
         override fun onClick(p0: View?) {
-
+            val intent : Intent = Intent(p0?.context, EmployeeDetailsActivity::class.java)
+            intent.putExtra("id", id)
+            intent.putExtra("adapter", "Fav")
+            p0?.context?.startActivity(intent)
         }
     }
 
