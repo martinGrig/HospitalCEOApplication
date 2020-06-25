@@ -47,84 +47,84 @@ class EmployeeLocalRepository() {
             "I",
             "Chotoe",
             Gender.female,
-            Date(1962, 5, 20),
+            Date(62, 5, 20),
             "Orthopedische chirurg",
             "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I am sick",
+            Date(119,7,31),
+            Notification("Urgent","I am not feeling well, is it possible for me to have a sick leave?",
                 cal.time
             )
         )
         employeeEntities?.add(employee)
 
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        cal.set(2020, Calendar.JUNE, 19, 17,50)
         employee = Employee(
             1,
             "Richard",
             "Z",
             "Waterson",
             Gender.male,
-            Date(1962, 5, 20),
+            Date(62, 5, 20),
             "Orthopedische chirurg",
             "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I wanna die", cal.time)
+            Date(119,7,31),
+            Notification("Urgent","We have a problem in the Orthopedie Department", cal.time)
         )
         employeeEntities?.add(employee)
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        cal.set(2020, Calendar.JUNE, 23, 13,13)
         employee = Employee(
             1,
-            "Richard",
-            "Z",
-            "Waterson",
+            "Nikole",
+            "R",
+            "Vermond",
             Gender.male,
-            Date(1962, 5, 20),
-            "Orthopedische chirurg",
-            "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I wanna die", cal.time)
+            Date(76, 5, 20),
+            "Diëtetiek",
+            "Diëtetiek",
+            Date(113,7,31),
+            Notification("Urgent","The conditions of a patient are getting worse", cal.time)
         )
         employeeEntities?.add(employee)
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        cal.set(2020, Calendar.JUNE, 25,9,0)
         employee = Employee(
             1,
-            "Richard",
-            "Z",
-            "Waterson",
-            Gender.male,
-            Date(1962, 5, 20),
-            "Orthopedische chirurg",
+            "Jasmin",
+            "M",
+            "van 't Klooster",
+            Gender.female,
+            Date(87, 5, 20),
+            "Anesthesioloog-pijnspecialis",
             "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I wanna die", cal.time)
+            Date(100,7,31),
+            Notification("Urgent","Dr. Michaels is not and he was suppose to be on shift", cal.time)
         )
         employeeEntities?.add(employee)
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        cal.set(2020, Calendar.JUNE, 21, 21,25)
         employee = Employee(
             1,
-            "Richard",
+            "David",
             "Z",
-            "Waterson",
+            "Koehorst",
             Gender.male,
-            Date(1962, 5, 20),
-            "Orthopedische chirurg",
+            Date(62, 5, 20),
+            "Slaapconsulent",
             "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I wanna die", cal.time)
+            Date(99,7,31),
+            Notification("Urgent","I am organizing a party, are you free on Sunday, Boss?", cal.time)
         )
         employeeEntities?.add(employee)
-        cal.set(2020, Calendar.JUNE, 20, 16,5)
+        cal.set(2020, Calendar.JUNE, 22, 3,33)
         employee = Employee(
             1,
-            "Richard",
-            "Z",
-            "Waterson",
+            "Rock",
+            "D",
+            "Johnson",
             Gender.male,
-            Date(1962, 5, 20),
-            "Orthopedische chirurg",
+            Date(87, 5, 20),
+            "Physician Assistant",
             "Orthopedie",
-            Date(2019,7,31),
-            Notification("Urgent","I wanna die", cal.time)
+            Date(111,7,31),
+            Notification("Urgent","\"Message deleted.\"", cal.time)
         )
         employeeEntities?.add(employee)
 

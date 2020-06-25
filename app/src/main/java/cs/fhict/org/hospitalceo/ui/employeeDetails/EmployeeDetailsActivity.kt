@@ -42,11 +42,11 @@ class EmployeeDetailsActivity : AppCompatActivity(),EmployeeDetailsContract.View
         else employeeImage.setImageResource(R.mipmap.male_nurse)
 
         employeeDetailsName.text = employee.name_first + " " +  employee.name_last
-        employeeBirthday.text = employee.birthday.toString()
-        employeeJobStart.text = employee.job_start.toString()
+        employeeBirthday.text = android.text.format.DateFormat.format("yyyy.MM.dd", employee.birthday)
+        employeeJobStart.text = android.text.format.DateFormat.format("yyyy.MM.dd", employee.job_start)
 
         employeeJob.text = employee.job
-        employeePhone.text = "06 12345678"
+        employeePhone.text = "+06 12345678"
 
     }
 

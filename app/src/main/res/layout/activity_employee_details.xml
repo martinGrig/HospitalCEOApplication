@@ -24,14 +24,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
 
-                    android:background="#0336EA"
-                    android:orientation="vertical"
-                    >
-                </LinearLayout>
+                    android:background="#182883"
+                    android:orientation="vertical"></LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -152,15 +151,14 @@
         android:layout_weight="3.3"
         android:orientation="vertical"
         >
+
         <TextView
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Employee Data"
-            android:textSize="20dp"
             android:paddingTop="10dp"
+            android:text="Employee Data"
             android:textColor="@color/colorPrimary"
-            >
-        </TextView>
+            android:textSize="20dp"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"

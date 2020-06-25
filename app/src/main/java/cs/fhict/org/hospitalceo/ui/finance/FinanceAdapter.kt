@@ -24,8 +24,8 @@ class FinanceAdapter(private var finances : ArrayList<Expense>,val context: Cont
     override fun onBindViewHolder(holder: FinanceViewHolder, position: Int) {
 
         holder.nameTextView.text = finances[position].title
-        holder.bodyTextView.text = finances[position].amount.toString()
-        holder.dateTextView.text = finances[position].date.toString()
+        holder.bodyTextView.text = "€ " + finances[position].amount.toString()
+        holder.dateTextView.text = android.text.format.DateFormat.format("d MMM", finances[position].date)
 
     }
 

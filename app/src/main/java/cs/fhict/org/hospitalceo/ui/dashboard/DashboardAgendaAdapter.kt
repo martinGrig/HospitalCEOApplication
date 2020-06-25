@@ -49,12 +49,6 @@ class DashboardAgendaAdapter(private var agendaNotifications : ArrayList<AgendaN
         holder.bodyTextView.text = agendaNotification.body
         holder.dateTextView.text = android.text.format.DateFormat.format("d MMM", agendaNotification.time).toString() //notification.time.toString()
 
-
-
-
-        // holder.bodyTextView.text = depNotifications[position].amount.toString()
-        // holder.dateTextView.text =  depNotifications[position].date.toString()
-
     }
 
     class DashboardAgendaViewHolder(view: View,context: Context) : RecyclerView.ViewHolder(view) , View.OnClickListener{
